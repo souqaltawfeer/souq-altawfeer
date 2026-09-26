@@ -177,12 +177,15 @@ function toSiteProduct(candidate, affiliateUrl, query) {
 
   for (const query of settings.queries || []) {
     try {
-      const candidates = (await searchProducts(query))
+      const validProducts = (await searchProducts(query))
         .map(product => normalizeCandidate(product, query))
-        .filter(item => item.id && item.price > 0)
-        .filter(item => item.rating >= Number(settings.minRating))
-        .filter(item => item.discount >= Number(settings.minDiscountPercent) || item.freeShipping || item.orders >= Number(settings.highSalesOrders || 1000))
-        .sort((a, b) => b.discount - a.discount);
+        .filter(item => item.id && item.price > 0);
+      const preferredProducts = validProducts.filter(item =>
+        (item.rating === 0 || item.rating >= Number(settings.minRating)) &&
+        (item.discount >= Number(settings.minDiscountPercent) || item.freeShipping || item.orders >= Number(settings.highSalesOrders || 1000))
+      );
+      const candidates = (preferredProducts.length ? preferredProducts : validProducts)
+        .sort((a, b) => (b.discount * 3 + (b.freeShipping ? 20 : 0) + b.orders / 100) - (a.discount * 3 + (a.freeShipping ? 20 : 0) + a.orders / 100));
 
       for (const candidate of candidates) {
         if (products.length >= Number(settings.maxProducts) && !existingIds.has(`auto:${candidate.id}`)) continue;
