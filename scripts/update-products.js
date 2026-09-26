@@ -19,7 +19,6 @@ const trackingId = process.env.ALIEXPRESS_TRACKING_ID;
 const missingSecrets = [
   ['ALIEXPRESS_APP_KEY', appKey],
   ['ALIEXPRESS_APP_SECRET', appSecret],
-  ['ALIEXPRESS_APP_SIGNATURE', appSignature],
   ['ALIEXPRESS_TRACKING_ID', trackingId]
 ].filter(([, value]) => !value).map(([name]) => name);
 if (missingSecrets.length) throw new Error(`Missing secret(s): ${missingSecrets.join(', ')}`);
@@ -84,7 +83,7 @@ async function callApi(method, businessParams = {}) {
     timestamp: String(Date.now()),
     sign_method: 'sha256',
     method,
-    app_signature: appSignature,
+    ...(appSignature ? { app_signature: appSignature } : {}),
     ...businessParams
   };
   params.sign = sign(params);
