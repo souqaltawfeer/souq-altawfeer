@@ -10,6 +10,7 @@ const crypto = require('node:crypto');
 const root = process.cwd();
 const sourcePath = `${root}/products-source.json`;
 const productsPath = `${root}/products.json`;
+const imageDir = `${root}/assets/products`;
 const apiUrl = process.env.ALIEXPRESS_API_URL || 'https://api-sg.aliexpress.com/sync';
 const appKey = process.env.ALIEXPRESS_APP_KEY;
 const appSecret = process.env.ALIEXPRESS_APP_SECRET;
@@ -127,6 +128,20 @@ async function createAffiliateLink(product) {
   return link;
 }
 
+async function downloadProductImage(productId, imageUrl) {
+  if (!imageUrl) throw new Error('Product image was not returned');
+  fs.mkdirSync(imageDir, { recursive: true });
+  const safeId = String(productId).replace(/[^a-zA-Z0-9_-]/g, '_');
+  const relativePath = `assets/products/${safeId}.webp`;
+  const absolutePath = `${root}/${relativePath}`;
+  if (!fs.existsSync(absolutePath)) {
+    const response = await fetch(imageUrl, { headers: { 'user-agent': 'Mozilla/5.0' } });
+    if (!response.ok) throw new Error(`Product image download failed with HTTP ${response.status}`);
+    fs.writeFileSync(absolutePath, Buffer.from(await response.arrayBuffer()));
+  }
+  return relativePath;
+}
+
 function numeric(product, keys) {
   const value = Number(firstValue(product, keys));
   return Number.isFinite(value) ? value : 0;
@@ -195,6 +210,7 @@ function toSiteProduct(candidate, affiliateUrl, query) {
           const affiliateUrl = await createAffiliateLink(candidate.product);
           if (!affiliateUrl) throw new Error('Affiliate link was not returned');
           const next = toSiteProduct(candidate, affiliateUrl, query);
+          next.img = await downloadProductImage(candidate.id, next.img);
           if (existingIndex >= 0) {
             products[existingIndex] = { ...products[existingIndex], ...next };
             updated++;
