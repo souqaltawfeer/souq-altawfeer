@@ -16,9 +16,13 @@ const appSecret = process.env.ALIEXPRESS_APP_SECRET;
 const appSignature = process.env.ALIEXPRESS_APP_SIGNATURE;
 const trackingId = process.env.ALIEXPRESS_TRACKING_ID;
 
-if (!appKey || !appSecret || !appSignature || !trackingId) {
-  throw new Error('Missing ALIEXPRESS_APP_KEY, ALIEXPRESS_APP_SECRET, ALIEXPRESS_APP_SIGNATURE, or ALIEXPRESS_TRACKING_ID');
-}
+const missingSecrets = [
+  ['ALIEXPRESS_APP_KEY', appKey],
+  ['ALIEXPRESS_APP_SECRET', appSecret],
+  ['ALIEXPRESS_APP_SIGNATURE', appSignature],
+  ['ALIEXPRESS_TRACKING_ID', trackingId]
+].filter(([, value]) => !value).map(([name]) => name);
+if (missingSecrets.length) throw new Error(`Missing secret(s): ${missingSecrets.join(', ')}`);
 
 const configFile = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
 const settings = Array.isArray(configFile) ? {
