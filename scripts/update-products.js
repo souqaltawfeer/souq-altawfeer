@@ -27,6 +27,7 @@ if (missingSecrets.length) throw new Error(`Missing secret(s): ${missingSecrets.
 const configFile = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
 const settings = Array.isArray(configFile) ? {
   maxProducts: 20,
+  enabledStores: ['علي إكسبريس'],
   minDiscountPercent: 20,
   minRating: 4.5,
   minOrders: 100,
@@ -34,13 +35,15 @@ const settings = Array.isArray(configFile) ? {
   queries: configFile
 } : {
   maxProducts: 20,
+  enabledStores: ['علي إكسبريس'],
   minDiscountPercent: 20,
   minRating: 4.5,
   minOrders: 100,
   highSalesOrders: 1000,
   ...configFile
 };
-const products = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
+const products = JSON.parse(fs.readFileSync(productsPath, 'utf8'))
+  .filter(product => (settings.enabledStores || ['علي إكسبريس']).includes(product.store));
 const now = new Date().toISOString();
 
 function firstValue(obj, keys) {

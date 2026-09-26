@@ -164,7 +164,7 @@ footer{background:#0b1830;color:#c9d6ea;margin-top:30px;padding:40px 0 0}
   </div>
   <div class="links">
     <div class="container">
-      <a href="#top">🏠 الرئيسية</a><a href="#products">🔥 العروض اليومية</a><a href="#products">📱 إلكترونيات</a><a href="#products">👗 أزياء</a><a href="#products">🏠 المنزل</a><a href="#how">❓ كيف يعمل الموقع؟</a><a href="#safety">🛡️ التسوق الآمن</a>
+      <a href="#top">🏠 الرئيسية</a><a href="#products">🔥 أقوى العروض</a><a href="#aliexpress">🛍️ AliExpress</a><a href="#products">📱 إلكترونيات</a><a href="#products">👗 أزياء</a><a href="#products">🏠 المنزل</a><a href="#how">❓ كيف يعمل الموقع؟</a><a href="#safety">🛡️ التسوق الآمن</a>
     </div>
   </div>
 </header>
@@ -198,6 +198,10 @@ footer{background:#0b1830;color:#c9d6ea;margin-top:30px;padding:40px 0 0}
     <div class="feat"><i class="fa-solid fa-star" style="background:linear-gradient(135deg,#e63946,#ff6b9d)"></i><div><b>معلومات واضحة</b><small>السعر والتقييم قبل الشراء</small></div></div>
   </div>
 </div>
+
+<section class="section container" id="aliexpress">
+  <div class="sec-head"><div><h2><i class="fa-solid fa-store"></i> متجر AliExpress</h2><p>العروض المفعّلة حالياً بروابط إحالة موثقة. متاجر أخرى ستظهر بعد ربطها.</p></div></div>
+</section>
 
 <section class="section container" id="products">
   <div class="sec-head">
@@ -622,7 +626,7 @@ function isAffiliateUrl(raw){
 function render(){
   const grid = document.getElementById('grid');
   const list = PRODUCTS.map((p,i)=>({...p, _i:i}))
-    .filter(p => p.affiliateVerified === true && isAffiliateUrl(p.url))
+    .filter(p => p.store === 'علي إكسبريس' && p.affiliateVerified === true && isAffiliateUrl(p.url))
     .filter(p => (activeCat==='all'||p.cat===activeCat) && p.name.includes(query));
   if(!list.length){ grid.innerHTML = '<div class="empty" style="grid-column:1/-1">😕 لا توجد عروض مطابقة — جرّب كلمة أخرى أو <a href="#" onclick="resetF()" style="color:var(--green);font-weight:800">عرض الكل</a></div>'; return; }
   grid.innerHTML = list.map(p=>{
