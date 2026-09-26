@@ -127,6 +127,9 @@ footer{background:#0b1830;color:#c9d6ea;margin-top:30px;padding:40px 0 0}
 .copy{border-top:1px solid rgba(255,255,255,.1);padding:16px 0;text-align:center;font-size:13px}
 .toast{position:fixed;bottom:24px;right:50%;transform:translateX(50%) translateY(100px);background:var(--navy);color:#fff;padding:13px 26px;border-radius:50px;font-weight:700;font-size:14px;z-index:400;transition:.3s;box-shadow:0 10px 30px rgba(0,0,0,.3)}
 .toast.show{transform:translateX(50%) translateY(0)}
+.region-picker{display:flex;align-items:center;gap:8px;font-size:13px}
+.region-picker select{font-family:inherit;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;border-radius:8px;padding:5px 8px}
+.region-picker option{color:#1c2740;background:#fff}
 .empty{text-align:center;color:var(--muted);padding:40px 10px;line-height:2}
 .skip-link{position:absolute;right:12px;top:-60px;background:var(--orange);color:#fff;padding:10px 16px;border-radius:0 0 10px 10px;z-index:500;font-weight:800}.skip-link:focus{top:0}
 .buy:focus-visible,.cat-btn:focus-visible,.btn-primary:focus-visible,.btn-ghost:focus-visible,.search button:focus-visible,.fav:focus-visible{outline:3px solid #ffd66b;outline-offset:3px}
@@ -141,7 +144,7 @@ footer{background:#0b1830;color:#c9d6ea;margin-top:30px;padding:40px 0 0}
 <div class="topbar">
   <div class="container">
     <div><i class="fa-solid fa-fire"></i> نرصد لك أقوى التخفيضات يومياً من كبرى المتاجر العالمية</div>
-    <div><i class="fa-solid fa-circle-info"></i> إفصاح واضح: قد نحصل على عمولة دون زيادة عليك</div>
+    <div class="region-picker"><i class="fa-solid fa-globe"></i><label for="countrySelect">الدولة:</label><select id="countrySelect" aria-label="اختر دولة الشحن"><option value="SA">السعودية</option><option value="AE">الإمارات</option><option value="EG">مصر</option><option value="KW">الكويت</option><option value="QA">قطر</option><option value="BH">البحرين</option><option value="OM">عُمان</option><option value="JO">الأردن</option><option value="MA">المغرب</option><option value="DZ">الجزائر</option><option value="TN">تونس</option><option value="TR">تركيا</option><option value="US">الولايات المتحدة</option><option value="GB">المملكة المتحدة</option><option value="DE">ألمانيا</option><option value="FR">فرنسا</option><option value="IT">إيطاليا</option><option value="ES">إسبانيا</option><option value="CA">كندا</option><option value="AU">أستراليا</option><option value="OTHER">دولة أخرى</option></select></div>
   </div>
 </div>
 
@@ -171,12 +174,13 @@ footer{background:#0b1830;color:#c9d6ea;margin-top:30px;padding:40px 0 0}
     <div>
       <span class="badge"><i class="fa-solid fa-fire"></i> خصومات حتى 70% على أمازون وعلي إكسبريس</span>
       <h1>أقوى العروض العالمية... <span class="hl">مجمّعة لك</span> في مكان واحد 🎉</h1>
-      <p>نستعرض لك منتجات وعروضاً مختارة من متاجر مثل أمازون وعلي إكسبريس ونون — اضغط على أي عرض وستنتقل مباشرة لصفحة الشراء في المتجر الرسمي.</p>
+      <p>نستعرض لك منتجات وعروضاً مختارة من متاجر عالمية — اضغط على أي عرض وستنتقل مباشرة لصفحة الشراء في المتجر الرسمي. اختر دولة الشحن لتظهر لك إرشادات التحقق من التوفر والتكلفة النهائية.</p>
       <div class="hero-cta">
         <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">اكتشف عروض اليوم 🛍️</button>
         <button class="btn-ghost" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">كيف أربح من الموقع؟ 💰</button>
       </div>
 <div class="countdown"><div class="cd" style="min-width:190px"><b>تحديثات دورية</b><span>تحقق من السعر عند الشراء</span></div></div>
+      <div id="shippingNotice" style="margin-top:14px;color:#d9e7f7;font-size:13px;line-height:1.8"></div>
     </div>
     <div class="hero-img">
       <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=800&q=80" alt="عروض سوق التوفير">
@@ -434,6 +438,20 @@ document.querySelectorAll('.cat-btn').forEach(b=>b.onclick=()=>{
 });
 function doSearch(){ query=document.getElementById('searchInput').value.trim(); render(); }
 document.getElementById('searchInput').addEventListener('input',e=>{query=e.target.value.trim();render();});
+
+const countrySelect = document.getElementById('countrySelect');
+const countryNames = Object.fromEntries([...countrySelect.options].map(o=>[o.value,o.textContent]));
+function browserCountry(){
+  const region = (navigator.language||'').split('-')[1]?.toUpperCase();
+  return [...countrySelect.options].some(o=>o.value===region) ? region : 'SA';
+}
+function updateShippingNotice(){
+  const country = countryNames[countrySelect.value] || 'الدولة المختارة';
+  document.getElementById('shippingNotice').textContent = `الشحن إلى ${country}: سيؤكد المتجر الرسمي توفر المنتج وسعر الشحن والضرائب بعد فتح الرابط، لأن هذه التفاصيل تتغير حسب العنوان والوقت.`;
+}
+countrySelect.value = localStorage.getItem('souq-country') || browserCountry();
+countrySelect.addEventListener('change',()=>{ localStorage.setItem('souq-country',countrySelect.value); updateShippingNotice(); toast('تم حفظ دولة الشحن: '+countryNames[countrySelect.value]); });
+updateShippingNotice();
 
 loadProducts();
 </script>
