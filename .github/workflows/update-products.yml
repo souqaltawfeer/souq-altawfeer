@@ -2,7 +2,7 @@ name: Update AliExpress products
 
 on:
   schedule:
-    - cron: "17 2 * * *"
+    - cron: "17 */6 * * *"
   workflow_dispatch:
 
 permissions:

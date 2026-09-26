@@ -1,6 +1,6 @@
 # أتمتة منتجات AliExpress
 
-المتجر يقرأ المنتجات من `products.json`. يتم تحديث المنتجات المدارة في `products-source.json` بواسطة GitHub Actions عبر `scripts/update-products.js`.
+المتجر يقرأ المنتجات من `products.json`. يبحث النظام دورياً عن عروض جديدة في `products-source.json` بواسطة GitHub Actions عبر `scripts/update-products.js`، ثم يضيف المنتجات المؤهلة أو يحدّث المنتجات التي سبق اكتشافها.
 
 ## الإعداد مرة واحدة
 
@@ -17,13 +17,23 @@
 
 لا تضع هذه القيم في HTML أو JavaScript أو أي ملف يتم رفعه للمستودع. إذا تم كشف App Secret سابقاً، اعمل له Reset قبل إضافته إلى GitHub Secrets.
 
-## إضافة منتج جديد
+## كيف تتم الإضافة التلقائية
 
-1. أضف المنتج الأساسي إلى `products.json`.
-2. أضف له `sourceId` فريداً.
-3. أضف نفس `sourceId` إلى `products-source.json`.
-4. الأفضل استخدام `itemId` الدقيق. إذا لم يتوفر، استخدم `keywords` إن كانت صلاحية API تسمح بالبحث.
-5. شغّل Workflow يدوياً من `Actions → Update AliExpress products → Run workflow`.
+يبحث النظام كل ست ساعات في الفئات المحددة، ولا يضيف المنتج إلا إذا حقق الشروط التالية:
+
+- خصم لا يقل عن 20%.
+- تقييم لا يقل عن 4.5.
+- 100 طلب أو أكثر حسب بيانات API.
+- رابط Affiliate يتم إنشاؤه بنجاح.
+- عدم وجود المنتج مسبقاً.
+
+الحد الأقصى الحالي هو 20 منتجاً. GitHub Pages لا يلتقط التخفيض لحظياً؛ أقرب فحص يحدث في التشغيل الدوري التالي.
+
+## إضافة فئة أو كلمة بحث جديدة
+
+1. أضف كائناً جديداً داخل `queries` في `products-source.json`.
+2. حدّد `keywords` و`category` و`currency`.
+3. شغّل Workflow يدوياً من `Actions → Update AliExpress products → Run workflow`.
 
 ## ملاحظات
 
