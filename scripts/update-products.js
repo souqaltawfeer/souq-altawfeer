@@ -147,6 +147,7 @@ function toSiteProduct(candidate, affiliateUrl, query) {
     sourceId: `auto:${candidate.id}`,
     name: firstValue(product, ['product_title', 'productTitle', 'title', 'name']),
     url: affiliateUrl,
+    affiliateVerified: true,
     store: 'علي إكسبريس',
     price: candidate.price,
     old: candidate.old,

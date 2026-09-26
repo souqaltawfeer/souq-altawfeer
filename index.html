@@ -291,7 +291,8 @@ const DEFAULT_PRODUCTS = [
     "cat": "إلكترونيات",
     "img": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80",
     "rating": 4.8,
-    "sold": "2.3k"
+    "sold": "2.3k",
+    "affiliateVerified": true
   },
   {
     "name": "ساعة Apple Watch SE بشاشة ريتينا + GPS",
@@ -303,7 +304,8 @@ const DEFAULT_PRODUCTS = [
     "cat": "إلكترونيات",
     "img": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80",
     "rating": 4.9,
-    "sold": "1.8k"
+    "sold": "1.8k",
+    "affiliateVerified": true
   },
   {
     "name": "عطر عود وعنبر فاخر 100مل - الأكثر مبيعاً",
@@ -315,7 +317,8 @@ const DEFAULT_PRODUCTS = [
     "cat": "الجمال",
     "img": "https://images.unsplash.com/photo-1541643600914-78b084683601?w=600&q=80",
     "rating": 4.9,
-    "sold": "900"
+    "sold": "900",
+    "affiliateVerified": true
   },
   {
     "name": "لابتوب Lenovo للأعمال والدراسة - 16GB",
@@ -327,7 +330,8 @@ const DEFAULT_PRODUCTS = [
     "cat": "إلكترونيات",
     "img": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80",
     "rating": 4.8,
-    "sold": "320"
+    "sold": "320",
+    "affiliateVerified": true
   },
   {
     "name": "ماكينة قهوة مختصة مع تبخير الحليب",
@@ -339,7 +343,8 @@ const DEFAULT_PRODUCTS = [
     "cat": "المنزل",
     "img": "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=600&q=80",
     "rating": 4.8,
-    "sold": "480"
+    "sold": "480",
+    "affiliateVerified": true
   },
   {
     "name": "كرسي استرخاء اسكندنافي للصالون",
@@ -351,7 +356,8 @@ const DEFAULT_PRODUCTS = [
     "cat": "المنزل",
     "img": "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&q=80",
     "rating": 4.6,
-    "sold": "210"
+    "sold": "210",
+    "affiliateVerified": true
   },
   {
     "name": "طقم قدور جرانيت 10 قطع ضد الالتصاق",
@@ -363,7 +369,8 @@ const DEFAULT_PRODUCTS = [
     "cat": "المنزل",
     "img": "https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&q=80",
     "rating": 4.8,
-    "sold": "1.5k"
+    "sold": "1.5k",
+    "affiliateVerified": true
   }
 ];
 const AFFILIATE_PRODUCTS = DEFAULT_PRODUCTS;
@@ -385,10 +392,20 @@ async function loadProducts(){
 let activeCat = 'all', query = '';
 function fmt(p){ return Number(p.price).toLocaleString('en-US') + ' ' + (p.cur||'$'); }
 function fmtOld(p){ return Number(p.old).toLocaleString('en-US') + ' ' + (p.cur||'$'); }
+function isAffiliateUrl(raw){
+  try{
+    const url = new URL(raw);
+    const host = url.hostname.toLowerCase();
+    if(host === 's.click.aliexpress.com' && url.pathname.startsWith('/e/')) return true;
+    if(host.endsWith('amazon.com') && url.searchParams.has('tag')) return true;
+    return false;
+  }catch(e){ return false; }
+}
 
 function render(){
   const grid = document.getElementById('grid');
   const list = PRODUCTS.map((p,i)=>({...p, _i:i}))
+    .filter(p => p.affiliateVerified === true && isAffiliateUrl(p.url))
     .filter(p => (activeCat==='all'||p.cat===activeCat) && p.name.includes(query));
   if(!list.length){ grid.innerHTML = '<div class="empty" style="grid-column:1/-1">😕 لا توجد عروض مطابقة — جرّب كلمة أخرى أو <a href="#" onclick="resetF()" style="color:var(--green);font-weight:800">عرض الكل</a></div>'; return; }
   grid.innerHTML = list.map(p=>{

@@ -9,7 +9,8 @@
     "cat": "إلكترونيات",
     "img": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80",
     "rating": 4.8,
-    "sold": "2.3k"
+    "sold": "2.3k",
+    "affiliateVerified": true
   },
   {
     "name": "ساعة Apple Watch SE بشاشة ريتينا + GPS",
@@ -21,7 +22,8 @@
     "cat": "إلكترونيات",
     "img": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80",
     "rating": 4.9,
-    "sold": "1.8k"
+    "sold": "1.8k",
+    "affiliateVerified": true
   },
   {
     "name": "عطر عود وعنبر فاخر 100مل - الأكثر مبيعاً",
@@ -33,7 +35,8 @@
     "cat": "الجمال",
     "img": "https://images.unsplash.com/photo-1541643600914-78b084683601?w=600&q=80",
     "rating": 4.9,
-    "sold": "900"
+    "sold": "900",
+    "affiliateVerified": true
   },
   {
     "name": "لابتوب Lenovo للأعمال والدراسة - 16GB",
@@ -45,7 +48,8 @@
     "cat": "إلكترونيات",
     "img": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80",
     "rating": 4.8,
-    "sold": "320"
+    "sold": "320",
+    "affiliateVerified": true
   },
   {
     "name": "ماكينة قهوة مختصة مع تبخير الحليب",
@@ -57,7 +61,8 @@
     "cat": "المنزل",
     "img": "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=600&q=80",
     "rating": 4.8,
-    "sold": "480"
+    "sold": "480",
+    "affiliateVerified": true
   },
   {
     "name": "كرسي استرخاء اسكندنافي للصالون",
@@ -69,7 +74,8 @@
     "cat": "المنزل",
     "img": "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&q=80",
     "rating": 4.6,
-    "sold": "210"
+    "sold": "210",
+    "affiliateVerified": true
   },
   {
     "name": "طقم قدور جرانيت 10 قطع ضد الالتصاق",
@@ -81,6 +87,7 @@
     "cat": "المنزل",
     "img": "https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&q=80",
     "rating": 4.8,
-    "sold": "1.5k"
+    "sold": "1.5k",
+    "affiliateVerified": true
   }
 ]
