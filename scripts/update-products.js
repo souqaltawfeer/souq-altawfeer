@@ -115,7 +115,11 @@ async function createAffiliateLink(product) {
     promotion_link_type: '0',
     source_values: String(sourceUrl)
   });
-  return collectLink(payload);
+  const link = collectLink(payload);
+  if (!link || !/^https:\/\/s\.click\.aliexpress\.com\/e\//i.test(link)) {
+    throw new Error('AliExpress did not return a valid s.click affiliate link');
+  }
+  return link;
 }
 
 function numeric(product, keys) {
