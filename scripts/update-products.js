@@ -32,7 +32,7 @@ function timestamp() {
 }
 
 function sign(params) {
-  const canonical = Object.keys(params).sort().map(key => key + params[key]).join('');
+  const canonical = Object.keys(params).sort().map(key => `${key}=${params[key]}`).join('&');
   return crypto.createHash('md5').update(appSecret + canonical + appSecret).digest('hex').toUpperCase();
 }
 
