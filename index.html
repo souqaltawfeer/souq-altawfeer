@@ -4,7 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>سوق التوفير | أفضل العروض والتخفيضات - تسوق بذكاء</title>
-<meta name="description" content="سوق التوفير - نرصد لك أفضل العروض والتخفيضات من أمازون وعلي إكسبريس ونون وغيرها">
+<meta name="description" content="سوق التوفير: عروض ومنتجات مختارة من متاجر عالمية مع روابط شراء مباشرة وإفصاح واضح عن التسويق بالعمولة.">
+<meta name="theme-color" content="#0f2040">
+<meta property="og:type" content="website">
+<meta property="og:title" content="سوق التوفير | عروض ومنتجات مختارة">
+<meta property="og:description" content="اكتشف عروضاً ومنتجات مختارة من متاجر عالمية في مكان واحد.">
+<meta property="og:url" content="https://souqaltawfeer.github.io/souq-altawfeer/">
+<link rel="canonical" href="https://souqaltawfeer.github.io/souq-altawfeer/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -36,7 +42,6 @@ header{background:#fff;box-shadow:0 2px 15px rgba(0,0,0,.07);position:sticky;top
 .search button:hover{background:var(--green)}
 .nav-actions{display:flex;gap:10px;align-items:center}
 .btn-deals{background:linear-gradient(135deg,var(--orange),#ff8f3f);color:#fff;border:0;border-radius:50px;padding:11px 22px;font-family:inherit;font-weight:800;cursor:pointer;font-size:15px;display:flex;gap:8px;align-items:center}
-.btn-admin{background:#eef6f1;color:var(--green-dark);border:1.5px dashed var(--green);border-radius:50px;padding:10px 18px;font-family:inherit;font-weight:800;cursor:pointer;font-size:14px}
 .links{background:var(--navy);color:#dfe7f3}
 .links .container{display:flex;gap:22px;padding:10px 18px;font-size:14px;font-weight:600;overflow-x:auto;white-space:nowrap}
 .links a:hover{color:var(--gold)}
@@ -105,12 +110,6 @@ header{background:#fff;box-shadow:0 2px 15px rgba(0,0,0,.07);position:sticky;top
 .step .n{width:52px;height:52px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;color:#fff}
 .step b{display:block;font-size:16px;margin-bottom:6px}
 .step p{color:var(--muted);font-size:13.5px;line-height:1.9}
-/* testimonials */
-.testi{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.t{background:#fff;border-radius:18px;padding:22px;box-shadow:var(--shadow)}
-.t p{color:#3c4b66;line-height:1.9;font-size:14px;margin:12px 0}
-.t .who{display:flex;gap:10px;align-items:center}
-.avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900}
 /* newsletter */
 .news{background:var(--navy);border-radius:24px;color:#fff;padding:36px;text-align:center;margin:36px 0 10px}
 .news h3{font-size:24px;font-weight:900}
@@ -126,31 +125,23 @@ footer{background:#0b1830;color:#c9d6ea;margin-top:30px;padding:40px 0 0}
 .f-grid a:hover{color:var(--gold)}
 .disclosure{background:rgba(255,184,0,.08);border:1px dashed rgba(255,184,0,.5);border-radius:14px;padding:14px 18px;font-size:13px;line-height:1.9;margin-bottom:26px;color:#e8d9ac}
 .copy{border-top:1px solid rgba(255,255,255,.1);padding:16px 0;text-align:center;font-size:13px}
-/* modal */
-.modal{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(10,20,40,.55)}
-.modal.show{display:flex}
-.modal-box{background:#fff;border-radius:20px;max-width:500px;width:100%;padding:26px;box-shadow:0 30px 80px rgba(0,0,0,.3);max-height:90vh;overflow:auto}
-.modal-box h3{font-size:20px;font-weight:900;margin-bottom:6px}
-.modal-box p.hint{background:#fff8e6;border:1px dashed #e6a800;border-radius:12px;padding:10px 14px;font-size:13px;color:#7a5c00;margin:12px 0;line-height:1.8}
-.modal-box label{display:block;font-size:13px;font-weight:800;margin:12px 0 6px}
-.modal-box input,.modal-box select{width:100%;border:1.5px solid #dde5ef;border-radius:12px;padding:11px 14px;font-family:inherit;font-size:14px;outline:none}
-.modal-box input:focus{border-color:var(--green)}
-.modal-actions{display:flex;gap:10px;margin-top:18px}
-.save{flex:1;background:var(--green);color:#fff;border:0;border-radius:12px;padding:13px;font-family:inherit;font-weight:900;cursor:pointer}
-.cancel{flex:1;background:#eef1f6;border:0;border-radius:12px;padding:13px;font-family:inherit;font-weight:800;cursor:pointer}
 .toast{position:fixed;bottom:24px;right:50%;transform:translateX(50%) translateY(100px);background:var(--navy);color:#fff;padding:13px 26px;border-radius:50px;font-weight:700;font-size:14px;z-index:400;transition:.3s;box-shadow:0 10px 30px rgba(0,0,0,.3)}
 .toast.show{transform:translateX(50%) translateY(0)}
 .empty{text-align:center;color:var(--muted);padding:40px 10px;line-height:2}
-@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}.features{grid-template-columns:repeat(2,1fr)}.testi,.how{grid-template-columns:1fr}.hero-inner{grid-template-columns:1fr}.f-grid{grid-template-columns:1fr 1fr}}
+.skip-link{position:absolute;right:12px;top:-60px;background:var(--orange);color:#fff;padding:10px 16px;border-radius:0 0 10px 10px;z-index:500;font-weight:800}.skip-link:focus{top:0}
+.buy:focus-visible,.cat-btn:focus-visible,.btn-primary:focus-visible,.btn-ghost:focus-visible,.search button:focus-visible,.fav:focus-visible{outline:3px solid #ffd66b;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}.features{grid-template-columns:repeat(2,1fr)}.how{grid-template-columns:1fr}.hero-inner{grid-template-columns:1fr}.f-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.grid{grid-template-columns:repeat(2,1fr)}.nav{flex-wrap:wrap}.search{order:3;flex-basis:100%}.card-img{height:150px}.card-title{font-size:13px;min-height:42px}.hero-img img{height:240px}.features{margin-top:16px}}
 </style>
 </head>
-<body>
+<body id="top">
+<a class="skip-link" href="#products">انتقل إلى العروض</a>
 
 <div class="topbar">
   <div class="container">
     <div><i class="fa-solid fa-fire"></i> نرصد لك أقوى التخفيضات يومياً من كبرى المتاجر العالمية</div>
-    <div><i class="fa-solid fa-circle-info"></i> موقع تابع — قد نحصل على عمولة عند الشراء دون زيادة عليك</div>
+    <div><i class="fa-solid fa-circle-info"></i> إفصاح واضح: قد نحصل على عمولة دون زيادة عليك</div>
   </div>
 </div>
 
@@ -165,13 +156,12 @@ footer{background:#0b1830;color:#c9d6ea;margin-top:30px;padding:40px 0 0}
       <button onclick="doSearch()"><i class="fa-solid fa-magnifying-glass"></i> بحث</button>
     </div>
     <div class="nav-actions">
-      <button class="btn-admin" onclick="openModal()"><i class="fa-solid fa-plus"></i> إضافة منتج</button>
       <button class="btn-deals" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"><i class="fa-solid fa-tags"></i> عروض اليوم</button>
     </div>
   </div>
   <div class="links">
     <div class="container">
-      <a href="#">🏠 الرئيسية</a><a href="#products">🔥 العروض اليومية</a><a href="#products">📱 إلكترونيات</a><a href="#products">👗 أزياء</a><a href="#products">🏠 المنزل</a><a href="#products">💄 الجمال</a><a href="#how">❓ كيف يعمل الموقع؟</a><a href="#testi">⭐ آراء المتابعين</a>
+      <a href="#top">🏠 الرئيسية</a><a href="#products">🔥 العروض اليومية</a><a href="#products">📱 إلكترونيات</a><a href="#products">👗 أزياء</a><a href="#products">🏠 المنزل</a><a href="#how">❓ كيف يعمل الموقع؟</a><a href="#safety">🛡️ التسوق الآمن</a>
     </div>
   </div>
 </header>
@@ -181,17 +171,12 @@ footer{background:#0b1830;color:#c9d6ea;margin-top:30px;padding:40px 0 0}
     <div>
       <span class="badge"><i class="fa-solid fa-fire"></i> خصومات حتى 70% على أمازون وعلي إكسبريس</span>
       <h1>أقوى العروض العالمية... <span class="hl">مجمّعة لك</span> في مكان واحد 🎉</h1>
-      <p>فريق سوق التوفير يبحث يومياً في أمازون وعلي إكسبريس ونون وغيرها، ويختار لك المنتجات الأصلية الأعلى تقييماً بأقل سعر — اضغط على أي عرض وستنتقل مباشرة لصفحة الشراء في المتجر الرسمي.</p>
+      <p>نستعرض لك منتجات وعروضاً مختارة من متاجر مثل أمازون وعلي إكسبريس ونون — اضغط على أي عرض وستنتقل مباشرة لصفحة الشراء في المتجر الرسمي.</p>
       <div class="hero-cta">
         <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">اكتشف عروض اليوم 🛍️</button>
         <button class="btn-ghost" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">كيف أربح من الموقع؟ 💰</button>
       </div>
-      <div class="countdown">
-        <div class="cd"><b id="cd-h">12</b><span>ساعة</span></div>
-        <div class="cd"><b id="cd-m">45</b><span>دقيقة</span></div>
-        <div class="cd"><b id="cd-s">30</b><span>ثانية</span></div>
-        <div class="cd" style="background:var(--orange);border-color:var(--orange)"><b>70%</b><span>خصم</span></div>
-      </div>
+<div class="countdown"><div class="cd" style="min-width:190px"><b>تحديثات دورية</b><span>تحقق من السعر عند الشراء</span></div></div>
     </div>
     <div class="hero-img">
       <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=800&q=80" alt="عروض سوق التوفير">
@@ -204,9 +189,9 @@ footer{background:#0b1830;color:#c9d6ea;margin-top:30px;padding:40px 0 0}
 <div class="container">
   <div class="features">
     <div class="feat"><i class="fa-solid fa-magnifying-glass-dollar" style="background:linear-gradient(135deg,#0aa46e,#00c9a7)"></i><div><b>رصد يومي للأسعار</b><small>نلتقط التخفيضات الحقيقية فقط</small></div></div>
-    <div class="feat"><i class="fa-solid fa-shield-halved" style="background:linear-gradient(135deg,#0f2040,#3b82f6)"></i><div><b>متاجر موثوقة 100%</b><small>الشراء يتم في الموقع الرسمي</small></div></div>
-    <div class="feat"><i class="fa-solid fa-ticket" style="background:linear-gradient(135deg,#ff6b1a,#ffb800)"></i><div><b>كوبونات حصرية</b><small>خصومات إضافية فوق العروض</small></div></div>
-    <div class="feat"><i class="fa-solid fa-star" style="background:linear-gradient(135deg,#e63946,#ff6b9d)"></i><div><b>تقييمات حقيقية</b><small>لا ننشر إلا الأعلى تقييماً</small></div></div>
+    <div class="feat"><i class="fa-solid fa-shield-halved" style="background:linear-gradient(135deg,#0f2040,#3b82f6)"></i><div><b>روابط شراء مباشرة</b><small>الشراء يتم في الموقع الرسمي</small></div></div>
+    <div class="feat"><i class="fa-solid fa-ticket" style="background:linear-gradient(135deg,#ff6b1a,#ffb800)"></i><div><b>اختيارات متنوعة</b><small>منتجات من فئات متعددة</small></div></div>
+    <div class="feat"><i class="fa-solid fa-star" style="background:linear-gradient(135deg,#e63946,#ff6b9d)"></i><div><b>معلومات واضحة</b><small>السعر والتقييم قبل الشراء</small></div></div>
   </div>
 </div>
 
@@ -235,27 +220,35 @@ footer{background:#0b1830;color:#c9d6ea;margin-top:30px;padding:40px 0 0}
 
 <div class="container">
   <div class="banner">
-    <div><h3>🎁 كوبونات إضافية داخل المتاجر</h3><p>قبل إتمام الشراء في المتجر الرسمي، ابحث عن خانة الكوبون وجرّب كود: TAWFEER20 لخصم إضافي!</p></div>
-    <button onclick="copyCode()">نسخ الكود ✅</button>
+    <div><h3>🛒 نصيحة قبل الشراء</h3><p>تحقق من السعر النهائي، تكلفة الشحن، التقييمات، وسياسة الإرجاع داخل المتجر قبل الدفع.</p></div>
+    <button onclick="document.getElementById('safety').scrollIntoView({behavior:'smooth'})">نصائح التسوق الآمن</button>
   </div>
 </div>
 
-<section class="section container" id="testi">
-  <div class="sec-head"><div><h2><i class="fa-solid fa-star"></i> ماذا قال متابعونا؟</h2><p>آلاف المتسوقين يوفّرون أسبوعياً عبر عروضنا</p></div></div>
-  <div class="testi">
-    <div class="t"><div class="stars">★★★★★</div><p>"وفّرت 40$ على سماعة من أمازون عن طريق عرض نشروه هنا. الفكرة عبقرية — كل العروض القوية بمكان واحد!"</p><div class="who"><div class="avatar" style="background:#0aa46e">أ</div><div><b>أحمد الحداد</b><br><small style="color:var(--muted)">متابع منذ 2024 ✅</small></div></div></div>
-    <div class="t"><div class="stars">★★★★★</div><p>"أحب إن الشراء يتم في أمازون نفسه، أحس بالأمان. صرت أفتح سوق التوفير كل صباح قبل أي مشتريات ❤️"</p><div class="who"><div class="avatar" style="background:#e63946">س</div><div><b>سارة العمودي</b><br><small style="color:var(--muted)">متابعة منذ 2025 ✅</small></div></div></div>
-    <div class="t"><div class="stars">★★★★★</div><p>"أخذت طقم المطبخ من علي إكسبريس بنصف السعر بفضل تنبيهات العروض. أفضل موقع عروض عربي جرّبته."</p><div class="who"><div class="avatar" style="background:#0f2040">م</div><div><b>محمد الشامي</b><br><small style="color:var(--muted)">متابع منذ 2024 ✅</small></div></div></div>
+<section class="section container" id="safety">
+  <div class="sec-head"><div><h2><i class="fa-solid fa-shield-halved"></i> تسوّق بوعي وأمان</h2><p>نساعدك على الوصول للمتجر؛ قرار الشراء النهائي لك وللمتجر الرسمي.</p></div></div>
+  <div class="how">
+    <div class="step"><div class="n" style="background:linear-gradient(135deg,#0aa46e,#00c9a7)">✓</div><b>راجع الرابط والمتجر</b><p>تأكد من أن الرابط يفتح نطاق المتجر الرسمي وأن المنتج والبائع مناسبان لك.</p></div>
+    <div class="step"><div class="n" style="background:linear-gradient(135deg,#ff6b1a,#ffb800)">✓</div><b>تحقق من السعر النهائي</b><p>قد تتغير الأسعار والمخزون والشحن، لذلك اعتمد السعر الظاهر عند إتمام الطلب.</p></div>
+    <div class="step"><div class="n" style="background:linear-gradient(135deg,#0f2040,#3b82f6)">✓</div><b>اقرأ التقييمات</b><p>راجع تقييمات المشترين وسياسة الإرجاع والضمان قبل الدفع، خاصة للمنتجات مرتفعة السعر.</p></div>
   </div>
 </section>
 
 <div class="container">
   <div class="news">
-    <h3>🔔 تنبيهات العروض الكبرى على إيميلك</h3>
-    <p>عرض واحد أسبوعياً فقط — أقوى التخفيضات قبل نفاد الكمية</p>
-    <div class="news-form"><input id="nl" type="email" placeholder="بريدك الإلكتروني..."><button onclick="subscribe()">اشترك مجاناً</button></div>
+    <h3>🔔 عُد للاطلاع على العروض الجديدة</h3>
+    <p>نحدّث قائمة المنتجات دورياً. احفظ الموقع في مفضلة متصفحك لتعود إليه بسهولة.</p>
+    <a class="btn-primary" href="#products">مشاهدة العروض الحالية</a>
   </div>
 </div>
+
+
+<section class="section container" id="privacy">
+  <div class="step" style="text-align:right"><h2>سياسة الخصوصية</h2><p>هذا الموقع ثابت ولا يطلب إنشاء حساب أو تخزين بيانات الدفع. قد تُحمّل بعض الصور والخطوط من خدمات خارجية، وقد تنتقل إلى المتجر الخارجي عند الضغط على رابط المنتج. لا نتحكم في سياسات تلك المواقع، لذا راجع سياسة الخصوصية الخاصة بالمتجر الذي تزوره.</p></div>
+</section>
+<section class="section container" id="terms">
+  <div class="step" style="text-align:right"><h2>الشروط وإخلاء المسؤولية</h2><p>الأسعار والتوفر والتقييمات المعروضة للاسترشاد وقد تتغير في المتجر الرسمي. نحن لا نبيع المنتجات ولا نعالج الدفع ولا نضمن الشحن أو الإرجاع. قد نحصل على عمولة من بعض الروابط التابعة دون تكلفة إضافية عليك.</p></div>
+</section>
 
 <footer>
   <div class="container">
@@ -264,27 +257,11 @@ footer{background:#0b1830;color:#c9d6ea;margin-top:30px;padding:40px 0 0}
       <div><div class="logo" style="margin-bottom:12px"><div class="logo-icon"><i class="fa-solid fa-basket-shopping"></i></div><div><span style="color:#fff">سوق <em>التوفير</em></span><small>أفضل العروض والتخفيضات</small></div></div><p>نرصد لك يومياً أفضل التخفيضات من كبرى المتاجر العالمية: أمازون، علي إكسبريس، نون، شي إن، تيمو — ونجمعها لك في مكان واحد.</p></div>
       <div><h4>تسوق</h4><a href="#products">🔥 عروض اليوم</a><a href="#products">📱 إلكترونيات</a><a href="#products">👗 أزياء</a><a href="#products">🏠 المنزل</a></div>
       <div><h4>المتاجر</h4><a href="https://www.amazon.com" target="_blank" rel="nofollow sponsored noopener">🛒 أمازون Amazon</a><a href="https://www.aliexpress.com" target="_blank" rel="nofollow sponsored noopener">📦 علي إكسبريس</a><a href="https://www.noon.com" target="_blank" rel="nofollow sponsored noopener">🏬 نون Noon</a><a href="https://www.temu.com" target="_blank" rel="nofollow sponsored noopener">🎁 تيمو Temu</a></div>
-      <div><h4>الموقع</h4><a href="#how">❓ كيف نربح؟</a><a href="#testi">⭐ آراء المتابعين</a><a href="#">🔒 سياسة الخصوصية</a><a href="#">📄 الشروط والأحكام</a></div>
+      <div><h4>الموقع</h4><a href="#how">❓ كيف يعمل الموقع؟</a><a href="#safety">🛡️ التسوق الآمن</a><a href="#privacy">🔒 سياسة الخصوصية</a><a href="#terms">📄 الشروط والأحكام</a></div>
     </div>
   </div>
   <div class="copy">© 2026 سوق التوفير — جميع الحقوق محفوظة | موقع عروض وروابط تابعة</div>
 </footer>
-
-<div class="modal" id="modal">
-  <div class="modal-box">
-    <h3>➕ إضافة منتج تابع جديد</h3>
-    <p class="hint">💡 <b>هذه هي لوحة إضافة المنتجات!</b><br>الصق <b>رابط الأفلييت</b> الخاص بك في خانة الرابط (من Amazon Associates أو AliExpress Portals) وسيتحول زر "اشترِ الآن" إليه مباشرة.<br>للتعديل الدائم من الكود: ابحث في الملف عن <b>AFFILIATE_PRODUCTS</b> وأضف منتجك هناك.</p>
-    <label>اسم المنتج *</label><input id="f-name" placeholder="مثال: سماعة بلوتوث Sony">
-    <label>رابط الأفلييت (رابط الشراء) *</label><input id="f-url" dir="ltr" placeholder="https://www.amazon.com/dp/...?tag=YOURID-20">
-    <label>المتجر</label><select id="f-store"><option>أمازون</option><option>علي إكسبريس</option><option>نون</option><option>شي إن</option><option>تيمو</option><option>متجر آخر</option></select>
-    <label>السعر بعد الخصم *</label><input id="f-price" type="number" placeholder="مثال: 49">
-    <label>السعر قبل الخصم</label><input id="f-old" type="number" placeholder="مثال: 89">
-    <label>العملة</label><select id="f-cur"><option value="$">$ دولار</option><option value="ر.س">ر.س ريال سعودي</option><option value="ر.ي">ر.ي ريال يمني</option><option value="د.إ">د.إ درهم</option></select>
-    <label>التصنيف</label><select id="f-cat"><option>إلكترونيات</option><option>أزياء</option><option>المنزل</option><option>الجمال</option></select>
-    <label>رابط الصورة (اتركه فارغاً لصورة تلقائية)</label><input id="f-img" dir="ltr" placeholder="https://...">
-    <div class="modal-actions"><button class="save" onclick="saveProduct()">حفظ المنتج ✅</button><button class="cancel" onclick="closeModal()">إلغاء</button></div>
-  </div>
-</div>
 
 <div class="toast" id="toast"></div>
 
@@ -302,6 +279,7 @@ footer{background:#0b1830;color:#c9d6ea;margin-top:30px;padding:40px 0 0}
    img   : رابط الصورة | rating : التقييم
    💰 كل ضغطة على "اشترِ الآن" تفتح رابطك وتحسب لك عمولة!
 ============================================================ */
+const escapeHTML = value => String(value ?? '').replace(/[&<>\"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[ch]));
 const DEFAULT_PRODUCTS = [
   {name:"سماعة بلوتوث Sony WH-1000XM5 بخاصية عزل الضوضاء", url:"https://www.amazon.com/s?k=sony+wh-1000xm5&tag=souqaltawfeer-20", store:"أمازون", price:348, old:399, cur:"$", cat:"إلكترونيات", img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80", rating:4.8, sold:"2.3k"},
   {name:"ساعة Apple Watch SE بشاشة ريتينا + GPS", url:"https://www.amazon.com/s?k=apple+watch+se&tag=souqaltawfeer-20", store:"أمازون", price:189, old:249, cur:"$", cat:"إلكترونيات", img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80", rating:4.9, sold:"1.8k"},
@@ -336,13 +314,13 @@ function render(){
   grid.innerHTML = list.map(p=>{
     const d = p.old ? Math.round((1-p.price/p.old)*100) : 0;
     return `<div class="card">
-      <div class="card-img"><img loading="lazy" src="${p.img}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80'">
+      <div class="card-img"><img loading="lazy" decoding="async" width="600" height="420" src="${escapeHTML(p.img)}" alt="${escapeHTML(p.name)}" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80'">
       ${d?`<span class="disc">-${d}%</span>`:''}
-      <span class="store-tag">🏬 ${p.store||'متجر موثوق'}</span>
+      <span class="store-tag">🏬 ${escapeHTML(p.store||'متجر موثوق')}</span>
       <button class="fav" onclick="toast('❤️ تمت الإضافة للمفضلة')">♥</button></div>
       <div class="card-body">
-        <span class="card-cat">${p.cat}</span>
-        <div class="card-title">${p.name}</div>
+        <span class="card-cat">${escapeHTML(p.cat)}</span>
+        <div class="card-title">${escapeHTML(p.name)}</div>
         <div class="stars">${'★'.repeat(Math.round(p.rating||5))}${'☆'.repeat(5-Math.round(p.rating||5))} <small>${p.rating||5} | ${p.sold||'جديد'}</small></div>
         <div class="price"><span class="new">${fmt(p)}</span>${p.old?`<span class="old">${fmtOld(p)}</span>`:''}</div>
         <a class="buy" href="${p.url}" target="_blank" rel="nofollow sponsored noopener">اشترِ الآن من ${p.store||'المتجر'} 🔗</a>
@@ -360,33 +338,6 @@ document.querySelectorAll('.cat-btn').forEach(b=>b.onclick=()=>{
 function doSearch(){ query=document.getElementById('searchInput').value.trim(); render(); }
 document.getElementById('searchInput').addEventListener('input',e=>{query=e.target.value.trim();render();});
 
-function openModal(){ document.getElementById('modal').classList.add('show'); }
-function closeModal(){ document.getElementById('modal').classList.remove('show'); }
-function saveProduct(){
-  const name=document.getElementById('f-name').value.trim();
-  const url=document.getElementById('f-url').value.trim();
-  const store=document.getElementById('f-store').value;
-  const price=Number(document.getElementById('f-price').value);
-  const old=Number(document.getElementById('f-old').value)||0;
-  const cur=document.getElementById('f-cur').value;
-  const cat=document.getElementById('f-cat').value;
-  let img=document.getElementById('f-img').value.trim();
-  if(!name||!url||!price){ toast('⚠️ أدخل اسم المنتج ورابط الأفلييت والسعر'); return; }
-  if(!img) img='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80';
-  PRODUCTS.unshift({name,url,store,price,old,cur,cat,img,rating:5,sold:'جديد'});
-  localStorage.setItem('tawfeer_aff_products',JSON.stringify(PRODUCTS));
-  closeModal(); render();
-  ['f-name','f-url','f-price','f-old','f-img'].forEach(id=>document.getElementById(id).value='');
-  toast('🎉 تم نشر العرض في الموقع!');
-  document.getElementById('products').scrollIntoView({behavior:'smooth'});
-}
-function copyCode(){ navigator.clipboard?.writeText('TAWFEER20'); toast('✅ تم نسخ الكود: TAWFEER20'); }
-function subscribe(){ const v=document.getElementById('nl').value.trim(); if(!v||!v.includes('@')){toast('⚠️ أدخل بريداً إلكترونياً صحيحاً');return;} document.getElementById('nl').value=''; toast('🎉 تم الاشتراك! ترقّب أقوى العروض'); }
-function toast(t){ const el=document.getElementById('toast'); el.textContent=t; el.classList.add('show'); clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'),2500); }
-// countdown
-let s=12*3600+45*60+30;
-setInterval(()=>{ s=s>0?s-1:12*3600; const h=String(Math.floor(s/3600)).padStart(2,'0'),m=String(Math.floor(s%3600/60)).padStart(2,'0'),ss=String(s%60).padStart(2,'0');
-  document.getElementById('cd-h').textContent=h;document.getElementById('cd-m').textContent=m;document.getElementById('cd-s').textContent=ss; },1000);
 render();
 </script>
 <script>window.__CF$cv$params={r:'a40f36056805f9ee',t:'MTc5MDM5MzY0Ng==',u:'01a0dbc6fffc76a6810e3357926d03ab',ut:'JC.dd3lDsLDcAEE8eQmb6l.oRVY6SrA9b_93gMM6P34-1790393647-1.2.1.1-wRFytJ7V3ALjeyS_0gCeMkImwEofA71tgyFNfwDD0OqIKVhr5ElhGQcPbAxcbGxKq2a_NkJzvef.9I5d2pQ_lLGFHuKeJNvF9DMB280YG1E',i:60};(function(){if(!document.body)return;var s=document.createElement('script');s.src='/cdn-cgi/challenge-platform/scripts/precursor/main.js';document.head.appendChild(s);})();</script></body>
