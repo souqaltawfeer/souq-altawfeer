@@ -212,7 +212,10 @@ function toSiteProduct(candidate, affiliateUrl, query) {
     }
   }
 
-  if (!updated && !added) throw new Error('No products added or updated. Check API access, App Signature, and filters.');
+  if (!updated && !added) {
+    console.log('No qualifying offers found in this scan; keeping the existing catalog.');
+    return;
+  }
   fs.writeFileSync(productsPath, JSON.stringify(products, null, 2) + '\n');
   console.log(`Added ${added} new product(s), updated ${updated} product(s), total ${products.length}.`);
   if (failures.length) console.warn(`${failures.length} candidate operation(s) failed; existing data was preserved.`);
