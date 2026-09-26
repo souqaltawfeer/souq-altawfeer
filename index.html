@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سوق التوفير | أفضل العروض والتخفيضات - تسوق بذكاء</title>
+<meta name="description" content="سوق التوفير - نرصد لك أفضل العروض والتخفيضات من أمازون وعلي إكسبريس ونون وغيرها">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --green:#0aa46e; --green-dark:#078455; --orange:#ff6b1a; --red:#e63946;
+  --navy:#0f2040; --bg:#f5f7fb; --card:#ffffff; --muted:#6b7a90; --gold:#ffb800;
+  --radius:18px; --shadow:0 10px 30px rgba(15,32,64,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Cairo','Tajawal',sans-serif;background:var(--bg);color:#1c2740;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+.container{max-width:1200px;margin:auto;padding:0 18px}
+/* top bar */
+.topbar{background:var(--navy);color:#fff;font-size:13px;padding:8px 0}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.topbar i{color:var(--gold);margin-left:6px}
+/* header */
+header{background:#fff;box-shadow:0 2px 15px rgba(0,0,0,.07);position:sticky;top:0;z-index:100}
+.nav{display:flex;align-items:center;gap:18px;padding:14px 0}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:24px}
+.logo-icon{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--green),#00c9a7);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;box-shadow:0 6px 16px rgba(10,164,110,.35)}
+.logo span em{font-style:normal;color:var(--green)}
+.logo small{display:block;font-size:11px;color:var(--muted);font-weight:600}
+.search{flex:1;display:flex;background:#f1f4f9;border-radius:50px;padding:5px;border:1px solid #e6ebf2}
+.search input{flex:1;border:0;background:transparent;padding:10px 16px;font-family:inherit;font-size:15px;outline:none}
+.search button{background:var(--navy);color:#fff;border:0;border-radius:50px;padding:10px 24px;font-family:inherit;font-weight:700;cursor:pointer;transition:.2s}
+.search button:hover{background:var(--green)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.btn-deals{background:linear-gradient(135deg,var(--orange),#ff8f3f);color:#fff;border:0;border-radius:50px;padding:11px 22px;font-family:inherit;font-weight:800;cursor:pointer;font-size:15px;display:flex;gap:8px;align-items:center}
+.btn-admin{background:#eef6f1;color:var(--green-dark);border:1.5px dashed var(--green);border-radius:50px;padding:10px 18px;font-family:inherit;font-weight:800;cursor:pointer;font-size:14px}
+.links{background:var(--navy);color:#dfe7f3}
+.links .container{display:flex;gap:22px;padding:10px 18px;font-size:14px;font-weight:600;overflow-x:auto;white-space:nowrap}
+.links a:hover{color:var(--gold)}
+/* hero */
+.hero{background:radial-gradient(1000px 400px at 85% 10%,rgba(0,201,167,.25),transparent),radial-gradient(800px 400px at 10% 90%,rgba(255,107,26,.22),transparent),linear-gradient(135deg,#0f2040 0%,#14305e 60%,#0aa46e 160%);color:#fff;border-radius:0 0 32px 32px;overflow:hidden;position:relative}
+.hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:48px 0 54px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,184,0,.15);border:1px solid rgba(255,184,0,.5);color:#ffd66b;padding:7px 16px;border-radius:50px;font-size:13px;font-weight:700}
+.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.25;font-weight:900;margin:16px 0 12px}
+.hero h1 .hl{background:linear-gradient(90deg,#ffd66b,#ff6b1a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:#c9d6ea;line-height:1.9;font-size:16px}
+.hero-cta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,var(--orange),#ff3d00);color:#fff;padding:14px 30px;border-radius:50px;font-weight:800;border:0;font-size:16px;cursor:pointer;box-shadow:0 10px 25px rgba(255,107,26,.4);transition:.2s}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3);padding:14px 28px;border-radius:50px;font-weight:700;cursor:pointer;font-family:inherit;font-size:15px}
+.countdown{display:flex;gap:10px;margin-top:24px}
+.cd{background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:14px;min-width:76px;text-align:center;padding:10px 6px}
+.cd b{font-size:24px;display:block}
+.cd span{font-size:12px;color:#c9d6ea}
+.hero-img{position:relative}
+.hero-img img{border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.4);height:380px;width:100%;object-fit:cover}
+.float-card{position:absolute;background:#fff;color:#1c2740;border-radius:16px;padding:12px 16px;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center;font-size:13px;font-weight:800;animation:float 3s ease-in-out infinite}
+.float1{top:20px;right:-10px}.float2{bottom:20px;left:-10px;animation-delay:1.2s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+/* features */
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:-28px 0 10px;position:relative;z-index:5}
+.feat{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;display:flex;gap:12px;align-items:center}
+.feat i{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex-shrink:0}
+.feat b{display:block;font-size:14px}.feat small{color:var(--muted);font-size:12px}
+/* section */
+.section{padding:44px 0 10px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px;gap:12px;flex-wrap:wrap}
+.sec-head h2{font-size:26px;font-weight:900;display:flex;align-items:center;gap:10px}
+.sec-head h2 i{color:var(--orange)}
+.sec-head p{color:var(--muted);font-size:14px}
+.cats{display:flex;gap:10px;flex-wrap:wrap}
+.cat-btn{border:1.5px solid #dde5ef;background:#fff;padding:9px 20px;border-radius:50px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;transition:.2s}
+.cat-btn.active,.cat-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--card);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:.25s;position:relative;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,32,64,.16)}
+.card-img{position:relative;height:210px;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.card:hover .card-img img{transform:scale(1.07)}
+.disc{position:absolute;top:12px;right:12px;background:linear-gradient(135deg,#e63946,#ff6b1a);color:#fff;font-weight:900;font-size:13px;padding:5px 12px;border-radius:50px}
+.store-tag{position:absolute;bottom:12px;right:12px;background:rgba(15,32,64,.88);color:#fff;font-weight:800;font-size:12px;padding:5px 12px;border-radius:50px}
+.fav{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.9);border:0;width:36px;height:36px;border-radius:50%;cursor:pointer;color:#e63946;font-size:16px}
+.card-body{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-cat{font-size:12px;color:var(--green);font-weight:800}
+.card-title{font-weight:800;font-size:15px;line-height:1.6;min-height:48px}
+.stars{color:var(--gold);font-size:13px}
+.stars small{color:var(--muted)}
+.price{display:flex;align-items:center;gap:10px}
+.new{font-size:20px;font-weight:900;color:var(--red)}
+.old{font-size:14px;color:var(--muted);text-decoration:line-through}
+.buy{background:linear-gradient(135deg,var(--orange),#ff3d00);color:#fff;border:0;border-radius:12px;padding:12px;font-family:inherit;font-weight:900;cursor:pointer;font-size:14px;transition:.2s;margin-top:auto;display:block;text-align:center;box-shadow:0 6px 16px rgba(255,107,26,.35)}
+.buy:hover{transform:translateY(-2px)}
+/* banner */
+.banner{margin:36px 0 6px;background:linear-gradient(135deg,#ff6b1a,#e63946);border-radius:24px;color:#fff;padding:30px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;position:relative;overflow:hidden}
+.banner::before{content:"%";position:absolute;left:-10px;top:-30px;font-size:180px;font-weight:900;opacity:.12}
+.banner h3{font-size:26px;font-weight:900}
+.banner p{opacity:.9}
+.banner button{background:#fff;color:#e63946;border:0;padding:13px 30px;border-radius:50px;font-family:inherit;font-weight:900;cursor:pointer;font-size:15px}
+/* how */
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{background:#fff;border-radius:18px;padding:26px 22px;box-shadow:var(--shadow);text-align:center}
+.step .n{width:52px;height:52px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;color:#fff}
+.step b{display:block;font-size:16px;margin-bottom:6px}
+.step p{color:var(--muted);font-size:13.5px;line-height:1.9}
+/* testimonials */
+.testi{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.t{background:#fff;border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+.t p{color:#3c4b66;line-height:1.9;font-size:14px;margin:12px 0}
+.t .who{display:flex;gap:10px;align-items:center}
+.avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900}
+/* newsletter */
+.news{background:var(--navy);border-radius:24px;color:#fff;padding:36px;text-align:center;margin:36px 0 10px}
+.news h3{font-size:24px;font-weight:900}
+.news p{color:#b9c7de;margin:8px 0 18px}
+.news-form{display:flex;gap:8px;max-width:480px;margin:auto;background:#fff;border-radius:50px;padding:6px}
+.news-form input{flex:1;border:0;outline:none;padding:10px 16px;font-family:inherit;border-radius:50px}
+.news-form button{background:var(--green);color:#fff;border:0;border-radius:50px;padding:11px 26px;font-family:inherit;font-weight:800;cursor:pointer}
+/* footer */
+footer{background:#0b1830;color:#c9d6ea;margin-top:30px;padding:40px 0 0}
+.f-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:24px;padding-bottom:30px}
+.f-grid h4{color:#fff;margin-bottom:14px;font-size:16px}
+.f-grid a,.f-grid p{display:block;font-size:14px;margin-bottom:10px;line-height:1.8}
+.f-grid a:hover{color:var(--gold)}
+.disclosure{background:rgba(255,184,0,.08);border:1px dashed rgba(255,184,0,.5);border-radius:14px;padding:14px 18px;font-size:13px;line-height:1.9;margin-bottom:26px;color:#e8d9ac}
+.copy{border-top:1px solid rgba(255,255,255,.1);padding:16px 0;text-align:center;font-size:13px}
+/* modal */
+.modal{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(10,20,40,.55)}
+.modal.show{display:flex}
+.modal-box{background:#fff;border-radius:20px;max-width:500px;width:100%;padding:26px;box-shadow:0 30px 80px rgba(0,0,0,.3);max-height:90vh;overflow:auto}
+.modal-box h3{font-size:20px;font-weight:900;margin-bottom:6px}
+.modal-box p.hint{background:#fff8e6;border:1px dashed #e6a800;border-radius:12px;padding:10px 14px;font-size:13px;color:#7a5c00;margin:12px 0;line-height:1.8}
+.modal-box label{display:block;font-size:13px;font-weight:800;margin:12px 0 6px}
+.modal-box input,.modal-box select{width:100%;border:1.5px solid #dde5ef;border-radius:12px;padding:11px 14px;font-family:inherit;font-size:14px;outline:none}
+.modal-box input:focus{border-color:var(--green)}
+.modal-actions{display:flex;gap:10px;margin-top:18px}
+.save{flex:1;background:var(--green);color:#fff;border:0;border-radius:12px;padding:13px;font-family:inherit;font-weight:900;cursor:pointer}
+.cancel{flex:1;background:#eef1f6;border:0;border-radius:12px;padding:13px;font-family:inherit;font-weight:800;cursor:pointer}
+.toast{position:fixed;bottom:24px;right:50%;transform:translateX(50%) translateY(100px);background:var(--navy);color:#fff;padding:13px 26px;border-radius:50px;font-weight:700;font-size:14px;z-index:400;transition:.3s;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.toast.show{transform:translateX(50%) translateY(0)}
+.empty{text-align:center;color:var(--muted);padding:40px 10px;line-height:2}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}.features{grid-template-columns:repeat(2,1fr)}.testi,.how{grid-template-columns:1fr}.hero-inner{grid-template-columns:1fr}.f-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.grid{grid-template-columns:repeat(2,1fr)}.nav{flex-wrap:wrap}.search{order:3;flex-basis:100%}.card-img{height:150px}.card-title{font-size:13px;min-height:42px}.hero-img img{height:240px}.features{margin-top:16px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div><i class="fa-solid fa-fire"></i> نرصد لك أقوى التخفيضات يومياً من كبرى المتاجر العالمية</div>
+    <div><i class="fa-solid fa-circle-info"></i> موقع تابع — قد نحصل على عمولة عند الشراء دون زيادة عليك</div>
+  </div>
+</div>
+
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <div class="logo-icon"><i class="fa-solid fa-basket-shopping"></i></div>
+      <div><span>سوق <em>التوفير</em></span><small>أفضل العروض والتخفيضات 🏷️</small></div>
+    </div>
+    <div class="search">
+      <input id="searchInput" placeholder="ابحث عن منتج... سماعات، ساعة، عطر...">
+      <button onclick="doSearch()"><i class="fa-solid fa-magnifying-glass"></i> بحث</button>
+    </div>
+    <div class="nav-actions">
+      <button class="btn-admin" onclick="openModal()"><i class="fa-solid fa-plus"></i> إضافة منتج</button>
+      <button class="btn-deals" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"><i class="fa-solid fa-tags"></i> عروض اليوم</button>
+    </div>
+  </div>
+  <div class="links">
+    <div class="container">
+      <a href="#">🏠 الرئيسية</a><a href="#products">🔥 العروض اليومية</a><a href="#products">📱 إلكترونيات</a><a href="#products">👗 أزياء</a><a href="#products">🏠 المنزل</a><a href="#products">💄 الجمال</a><a href="#how">❓ كيف يعمل الموقع؟</a><a href="#testi">⭐ آراء المتابعين</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <span class="badge"><i class="fa-solid fa-fire"></i> خصومات حتى 70% على أمازون وعلي إكسبريس</span>
+      <h1>أقوى العروض العالمية... <span class="hl">مجمّعة لك</span> في مكان واحد 🎉</h1>
+      <p>فريق سوق التوفير يبحث يومياً في أمازون وعلي إكسبريس ونون وغيرها، ويختار لك المنتجات الأصلية الأعلى تقييماً بأقل سعر — اضغط على أي عرض وستنتقل مباشرة لصفحة الشراء في المتجر الرسمي.</p>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">اكتشف عروض اليوم 🛍️</button>
+        <button class="btn-ghost" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">كيف أربح من الموقع؟ 💰</button>
+      </div>
+      <div class="countdown">
+        <div class="cd"><b id="cd-h">12</b><span>ساعة</span></div>
+        <div class="cd"><b id="cd-m">45</b><span>دقيقة</span></div>
+        <div class="cd"><b id="cd-s">30</b><span>ثانية</span></div>
+        <div class="cd" style="background:var(--orange);border-color:var(--orange)"><b>70%</b><span>خصم</span></div>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=800&q=80" alt="عروض سوق التوفير">
+      <div class="float-card float1">🏬 <span>أمازون • علي إكسبريس • نون<br><small style="color:var(--muted)">متاجر عالمية موثوقة</small></span></div>
+      <div class="float-card float2">⭐ <span>منتجات مختارة بعناية<br><small style="color:var(--muted)">تقييم +4.5 فقط ننشره</small></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="features">
+    <div class="feat"><i class="fa-solid fa-magnifying-glass-dollar" style="background:linear-gradient(135deg,#0aa46e,#00c9a7)"></i><div><b>رصد يومي للأسعار</b><small>نلتقط التخفيضات الحقيقية فقط</small></div></div>
+    <div class="feat"><i class="fa-solid fa-shield-halved" style="background:linear-gradient(135deg,#0f2040,#3b82f6)"></i><div><b>متاجر موثوقة 100%</b><small>الشراء يتم في الموقع الرسمي</small></div></div>
+    <div class="feat"><i class="fa-solid fa-ticket" style="background:linear-gradient(135deg,#ff6b1a,#ffb800)"></i><div><b>كوبونات حصرية</b><small>خصومات إضافية فوق العروض</small></div></div>
+    <div class="feat"><i class="fa-solid fa-star" style="background:linear-gradient(135deg,#e63946,#ff6b9d)"></i><div><b>تقييمات حقيقية</b><small>لا ننشر إلا الأعلى تقييماً</small></div></div>
+  </div>
+</div>
+
+<section class="section container" id="products">
+  <div class="sec-head">
+    <div><h2><i class="fa-solid fa-fire"></i> عروض اليوم المختارة</h2><p>اضغط "اشترِ الآن" لتنتقل لصفحة المنتج في المتجر الرسمي — الأسعار قد تتغير في المتجر</p></div>
+    <div class="cats" id="cats">
+      <button class="cat-btn active" data-cat="all">الكل</button>
+      <button class="cat-btn" data-cat="إلكترونيات">📱 إلكترونيات</button>
+      <button class="cat-btn" data-cat="أزياء">👗 أزياء</button>
+      <button class="cat-btn" data-cat="المنزل">🏠 المنزل</button>
+      <button class="cat-btn" data-cat="الجمال">💄 الجمال</button>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="section container" id="how">
+  <div class="sec-head"><div><h2><i class="fa-solid fa-circle-question"></i> كيف يعمل موقع سوق التوفير؟</h2><p>بدون تسجيل، بدون سلة، بدون تواصل — ضغطة واحدة وتشتري من المتجر الرسمي</p></div></div>
+  <div class="how">
+    <div class="step"><div class="n" style="background:linear-gradient(135deg,#0aa46e,#00c9a7)">1</div><b>🔍 نرصد ونختار</b><p>نتابع تخفيضات أمازون وعلي إكسبريس ونون يومياً ونختار أفضل قيمة مقابل السعر.</p></div>
+    <div class="step"><div class="n" style="background:linear-gradient(135deg,#ff6b1a,#ffb800)">2</div><b>👆 تضغط على العرض</b><p>يعجبك منتج؟ اضغط زر "اشترِ الآن" وستنتقل مباشرة لصفحته في المتجر الرسمي.</p></div>
+    <div class="step"><div class="n" style="background:linear-gradient(135deg,#0f2040,#3b82f6)">3</div><b>💰 تشتري ونربح عمولة</b><p>تكمل الشراء والدفع بأمان في المتجر نفسه، ونحصل نحن على عمولة صغيرة من المتجر دون أي زيادة عليك.</p></div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="banner">
+    <div><h3>🎁 كوبونات إضافية داخل المتاجر</h3><p>قبل إتمام الشراء في المتجر الرسمي، ابحث عن خانة الكوبون وجرّب كود: TAWFEER20 لخصم إضافي!</p></div>
+    <button onclick="copyCode()">نسخ الكود ✅</button>
+  </div>
+</div>
+
+<section class="section container" id="testi">
+  <div class="sec-head"><div><h2><i class="fa-solid fa-star"></i> ماذا قال متابعونا؟</h2><p>آلاف المتسوقين يوفّرون أسبوعياً عبر عروضنا</p></div></div>
+  <div class="testi">
+    <div class="t"><div class="stars">★★★★★</div><p>"وفّرت 40$ على سماعة من أمازون عن طريق عرض نشروه هنا. الفكرة عبقرية — كل العروض القوية بمكان واحد!"</p><div class="who"><div class="avatar" style="background:#0aa46e">أ</div><div><b>أحمد الحداد</b><br><small style="color:var(--muted)">متابع منذ 2024 ✅</small></div></div></div>
+    <div class="t"><div class="stars">★★★★★</div><p>"أحب إن الشراء يتم في أمازون نفسه، أحس بالأمان. صرت أفتح سوق التوفير كل صباح قبل أي مشتريات ❤️"</p><div class="who"><div class="avatar" style="background:#e63946">س</div><div><b>سارة العمودي</b><br><small style="color:var(--muted)">متابعة منذ 2025 ✅</small></div></div></div>
+    <div class="t"><div class="stars">★★★★★</div><p>"أخذت طقم المطبخ من علي إكسبريس بنصف السعر بفضل تنبيهات العروض. أفضل موقع عروض عربي جرّبته."</p><div class="who"><div class="avatar" style="background:#0f2040">م</div><div><b>محمد الشامي</b><br><small style="color:var(--muted)">متابع منذ 2024 ✅</small></div></div></div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="news">
+    <h3>🔔 تنبيهات العروض الكبرى على إيميلك</h3>
+    <p>عرض واحد أسبوعياً فقط — أقوى التخفيضات قبل نفاد الكمية</p>
+    <div class="news-form"><input id="nl" type="email" placeholder="بريدك الإلكتروني..."><button onclick="subscribe()">اشترك مجاناً</button></div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="disclosure">⚠️ <b>إفصاح روابط تابعة (Affiliate Disclosure):</b> سوق التوفير موقع مراجعات وعروض، جميع أزرار "اشترِ الآن" هي روابط تابعة (Affiliate Links) لمتاجر مثل أمازون وعلي إكسبريس ونون. عند الشراء عبرها قد نحصل على عمولة من المتجر <b>دون أي زيادة في السعر عليك</b> — وهذا ما يدعم استمرار الموقع مجاناً.</div>
+    <div class="f-grid">
+      <div><div class="logo" style="margin-bottom:12px"><div class="logo-icon"><i class="fa-solid fa-basket-shopping"></i></div><div><span style="color:#fff">سوق <em>التوفير</em></span><small>أفضل العروض والتخفيضات</small></div></div><p>نرصد لك يومياً أفضل التخفيضات من كبرى المتاجر العالمية: أمازون، علي إكسبريس، نون، شي إن، تيمو — ونجمعها لك في مكان واحد.</p></div>
+      <div><h4>تسوق</h4><a href="#products">🔥 عروض اليوم</a><a href="#products">📱 إلكترونيات</a><a href="#products">👗 أزياء</a><a href="#products">🏠 المنزل</a></div>
+      <div><h4>المتاجر</h4><a href="https://www.amazon.com" target="_blank" rel="nofollow sponsored noopener">🛒 أمازون Amazon</a><a href="https://www.aliexpress.com" target="_blank" rel="nofollow sponsored noopener">📦 علي إكسبريس</a><a href="https://www.noon.com" target="_blank" rel="nofollow sponsored noopener">🏬 نون Noon</a><a href="https://www.temu.com" target="_blank" rel="nofollow sponsored noopener">🎁 تيمو Temu</a></div>
+      <div><h4>الموقع</h4><a href="#how">❓ كيف نربح؟</a><a href="#testi">⭐ آراء المتابعين</a><a href="#">🔒 سياسة الخصوصية</a><a href="#">📄 الشروط والأحكام</a></div>
+    </div>
+  </div>
+  <div class="copy">© 2026 سوق التوفير — جميع الحقوق محفوظة | موقع عروض وروابط تابعة</div>
+</footer>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <h3>➕ إضافة منتج تابع جديد</h3>
+    <p class="hint">💡 <b>هذه هي لوحة إضافة المنتجات!</b><br>الصق <b>رابط الأفلييت</b> الخاص بك في خانة الرابط (من Amazon Associates أو AliExpress Portals) وسيتحول زر "اشترِ الآن" إليه مباشرة.<br>للتعديل الدائم من الكود: ابحث في الملف عن <b>AFFILIATE_PRODUCTS</b> وأضف منتجك هناك.</p>
+    <label>اسم المنتج *</label><input id="f-name" placeholder="مثال: سماعة بلوتوث Sony">
+    <label>رابط الأفلييت (رابط الشراء) *</label><input id="f-url" dir="ltr" placeholder="https://www.amazon.com/dp/...?tag=YOURID-20">
+    <label>المتجر</label><select id="f-store"><option>أمازون</option><option>علي إكسبريس</option><option>نون</option><option>شي إن</option><option>تيمو</option><option>متجر آخر</option></select>
+    <label>السعر بعد الخصم *</label><input id="f-price" type="number" placeholder="مثال: 49">
+    <label>السعر قبل الخصم</label><input id="f-old" type="number" placeholder="مثال: 89">
+    <label>العملة</label><select id="f-cur"><option value="$">$ دولار</option><option value="ر.س">ر.س ريال سعودي</option><option value="ر.ي">ر.ي ريال يمني</option><option value="د.إ">د.إ درهم</option></select>
+    <label>التصنيف</label><select id="f-cat"><option>إلكترونيات</option><option>أزياء</option><option>المنزل</option><option>الجمال</option></select>
+    <label>رابط الصورة (اتركه فارغاً لصورة تلقائية)</label><input id="f-img" dir="ltr" placeholder="https://...">
+    <div class="modal-actions"><button class="save" onclick="saveProduct()">حفظ المنتج ✅</button><button class="cancel" onclick="closeModal()">إلغاء</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   🛠️ من هنا تعدّل أو تضيف المنتجات — انسخ أي سطر وغيّر بياناته
+   name  : اسم المنتج
+   url   : ⚠️ الأهم — الصق هنا رابط الأفلييت الخاص بك
+           (من Amazon Associates أو AliExpress Portals)
+           مثال أمازون: https://www.amazon.com/dp/B0XXXX?tag=YOURID-20
+           مثال علي إكسبريس: رابطك من portales.aliexpress.com
+   store : اسم المتجر (أمازون / علي إكسبريس / نون / شي إن / تيمو)
+   price : السعر بعد الخصم | old : السعر قبله | cur : العملة
+   cat   : التصنيف (إلكترونيات / أزياء / المنزل / الجمال)
+   img   : رابط الصورة | rating : التقييم
+   💰 كل ضغطة على "اشترِ الآن" تفتح رابطك وتحسب لك عمولة!
+============================================================ */
+const DEFAULT_PRODUCTS = [
+  {name:"سماعة بلوتوث Sony WH-1000XM5 بخاصية عزل الضوضاء", url:"https://www.amazon.com/s?k=sony+wh-1000xm5&tag=souqaltawfeer-20", store:"أمازون", price:348, old:399, cur:"$", cat:"إلكترونيات", img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80", rating:4.8, sold:"2.3k"},
+  {name:"ساعة Apple Watch SE بشاشة ريتينا + GPS", url:"https://www.amazon.com/s?k=apple+watch+se&tag=souqaltawfeer-20", store:"أمازون", price:189, old:249, cur:"$", cat:"إلكترونيات", img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80", rating:4.9, sold:"1.8k"},
+  {name:"حذاء Nike Air Max الرياضي - إصدار محدود", url:"https://www.aliexpress.com/wholesale?SearchText=nike+air+max", store:"علي إكسبريس", price:59, old:120, cur:"$", cat:"أزياء", img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80", rating:4.7, sold:"3.1k"},
+  {name:"عطر عود وعنبر فاخر 100مل - الأكثر مبيعاً", url:"https://www.amazon.com/s?k=oud+perfume+arabic&tag=souqaltawfeer-20", store:"أمازون", price:35, old:69, cur:"$", cat:"الجمال", img:"https://images.unsplash.com/photo-1541643600914-78b084683601?w=600&q=80", rating:4.9, sold:"900"},
+  {name:"حقيبة يد نسائية جلد طبيعي فاخرة", url:"https://www.aliexpress.com/wholesale?SearchText=women+leather+handbag", store:"علي إكسبريس", price:29, old:58, cur:"$", cat:"أزياء", img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80", rating:4.6, sold:"750"},
+  {name:"لابتوب Lenovo للأعمال والدراسة - 16GB", url:"https://www.amazon.com/s?k=lenovo+laptop+16gb&tag=souqaltawfeer-20", store:"أمازون", price:549, old:799, cur:"$", cat:"إلكترونيات", img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80", rating:4.8, sold:"320"},
+  {name:"طقم العناية بالبشرة الكوري - 5 قطع", url:"https://www.aliexpress.com/wholesale?SearchText=korean+skincare+set", store:"علي إكسبريس", price:19, old:39, cur:"$", cat:"الجمال", img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&q=80", rating:4.7, sold:"1.2k"},
+  {name:"نظارة شمسية بعدسات UV400 - موضة 2026", url:"https://www.aliexpress.com/wholesale?SearchText=sunglasses+uv400", store:"علي إكسبريس", price:9, old:25, cur:"$", cat:"أزياء", img:"https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80", rating:4.5, sold:"640"},
+  {name:"ماكينة قهوة مختصة مع تبخير الحليب", url:"https://www.amazon.com/s?k=espresso+machine&tag=souqaltawfeer-20", store:"أمازون", price:79, old:129, cur:"$", cat:"المنزل", img:"https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=600&q=80", rating:4.8, sold:"480"},
+  {name:"كرسي استرخاء اسكندنافي للصالون", url:"https://www.amazon.com/s?k=scandinavian+lounge+chair&tag=souqaltawfeer-20", store:"أمازون", price:129, old:199, cur:"$", cat:"المنزل", img:"https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&q=80", rating:4.6, sold:"210"},
+  {name:"هاتف Xiaomi بكاميرا 108MP وذاكرة 256GB", url:"https://www.aliexpress.com/wholesale?SearchText=xiaomi+256gb", store:"علي إكسبريس", price:199, old:299, cur:"$", cat:"إلكترونيات", img:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80", rating:4.7, sold:"890"},
+  {name:"طقم قدور جرانيت 10 قطع ضد الالتصاق", url:"https://www.amazon.com/s?k=granite+cookware+set&tag=souqaltawfeer-20", store:"أمازون", price:89, old:149, cur:"$", cat:"المنزل", img:"https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&q=80", rating:4.8, sold:"1.5k"},
+];
+const AFFILIATE_PRODUCTS = DEFAULT_PRODUCTS;
+
+let PRODUCTS = [];
+try{
+  const saved = JSON.parse(localStorage.getItem('tawfeer_aff_products')||'[]');
+  PRODUCTS = saved.length ? saved : [...AFFILIATE_PRODUCTS];
+}catch(e){ PRODUCTS = [...AFFILIATE_PRODUCTS]; }
+
+let activeCat = 'all', query = '';
+function fmt(p){ return Number(p.price).toLocaleString('en-US') + ' ' + (p.cur||'$'); }
+function fmtOld(p){ return Number(p.old).toLocaleString('en-US') + ' ' + (p.cur||'$'); }
+
+function render(){
+  const grid = document.getElementById('grid');
+  const list = PRODUCTS.map((p,i)=>({...p, _i:i}))
+    .filter(p => (activeCat==='all'||p.cat===activeCat) && p.name.includes(query));
+  if(!list.length){ grid.innerHTML = '<div class="empty" style="grid-column:1/-1">😕 لا توجد عروض مطابقة — جرّب كلمة أخرى أو <a href="#" onclick="resetF()" style="color:var(--green);font-weight:800">عرض الكل</a></div>'; return; }
+  grid.innerHTML = list.map(p=>{
+    const d = p.old ? Math.round((1-p.price/p.old)*100) : 0;
+    return `<div class="card">
+      <div class="card-img"><img loading="lazy" src="${p.img}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80'">
+      ${d?`<span class="disc">-${d}%</span>`:''}
+      <span class="store-tag">🏬 ${p.store||'متجر موثوق'}</span>
+      <button class="fav" onclick="toast('❤️ تمت الإضافة للمفضلة')">♥</button></div>
+      <div class="card-body">
+        <span class="card-cat">${p.cat}</span>
+        <div class="card-title">${p.name}</div>
+        <div class="stars">${'★'.repeat(Math.round(p.rating||5))}${'☆'.repeat(5-Math.round(p.rating||5))} <small>${p.rating||5} | ${p.sold||'جديد'}</small></div>
+        <div class="price"><span class="new">${fmt(p)}</span>${p.old?`<span class="old">${fmtOld(p)}</span>`:''}</div>
+        <a class="buy" href="${p.url}" target="_blank" rel="nofollow sponsored noopener">اشترِ الآن من ${p.store||'المتجر'} 🔗</a>
+      </div></div>`;
+  }).join('');
+}
+
+function resetF(){ activeCat='all'; query=''; document.getElementById('searchInput').value='';
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.toggle('active',b.dataset.cat==='all')); render(); }
+
+document.querySelectorAll('.cat-btn').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.cat-btn').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); activeCat=b.dataset.cat; render();
+});
+function doSearch(){ query=document.getElementById('searchInput').value.trim(); render(); }
+document.getElementById('searchInput').addEventListener('input',e=>{query=e.target.value.trim();render();});
+
+function openModal(){ document.getElementById('modal').classList.add('show'); }
+function closeModal(){ document.getElementById('modal').classList.remove('show'); }
+function saveProduct(){
+  const name=document.getElementById('f-name').value.trim();
+  const url=document.getElementById('f-url').value.trim();
+  const store=document.getElementById('f-store').value;
+  const price=Number(document.getElementById('f-price').value);
+  const old=Number(document.getElementById('f-old').value)||0;
+  const cur=document.getElementById('f-cur').value;
+  const cat=document.getElementById('f-cat').value;
+  let img=document.getElementById('f-img').value.trim();
+  if(!name||!url||!price){ toast('⚠️ أدخل اسم المنتج ورابط الأفلييت والسعر'); return; }
+  if(!img) img='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80';
+  PRODUCTS.unshift({name,url,store,price,old,cur,cat,img,rating:5,sold:'جديد'});
+  localStorage.setItem('tawfeer_aff_products',JSON.stringify(PRODUCTS));
+  closeModal(); render();
+  ['f-name','f-url','f-price','f-old','f-img'].forEach(id=>document.getElementById(id).value='');
+  toast('🎉 تم نشر العرض في الموقع!');
+  document.getElementById('products').scrollIntoView({behavior:'smooth'});
+}
+function copyCode(){ navigator.clipboard?.writeText('TAWFEER20'); toast('✅ تم نسخ الكود: TAWFEER20'); }
+function subscribe(){ const v=document.getElementById('nl').value.trim(); if(!v||!v.includes('@')){toast('⚠️ أدخل بريداً إلكترونياً صحيحاً');return;} document.getElementById('nl').value=''; toast('🎉 تم الاشتراك! ترقّب أقوى العروض'); }
+function toast(t){ const el=document.getElementById('toast'); el.textContent=t; el.classList.add('show'); clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'),2500); }
+// countdown
+let s=12*3600+45*60+30;
+setInterval(()=>{ s=s>0?s-1:12*3600; const h=String(Math.floor(s/3600)).padStart(2,'0'),m=String(Math.floor(s%3600/60)).padStart(2,'0'),ss=String(s%60).padStart(2,'0');
+  document.getElementById('cd-h').textContent=h;document.getElementById('cd-m').textContent=m;document.getElementById('cd-s').textContent=ss; },1000);
+render();
+</script>
+<script>window.__CF$cv$params={r:'a40f36056805f9ee',t:'MTc5MDM5MzY0Ng==',u:'01a0dbc6fffc76a6810e3357926d03ab',ut:'JC.dd3lDsLDcAEE8eQmb6l.oRVY6SrA9b_93gMM6P34-1790393647-1.2.1.1-wRFytJ7V3ALjeyS_0gCeMkImwEofA71tgyFNfwDD0OqIKVhr5ElhGQcPbAxcbGxKq2a_NkJzvef.9I5d2pQ_lLGFHuKeJNvF9DMB280YG1E',i:60};(function(){if(!document.body)return;var s=document.createElement('script');s.src='/cdn-cgi/challenge-platform/scripts/precursor/main.js';document.head.appendChild(s);})();</script></body>
+</html>
