@@ -29,6 +29,7 @@ jobs:
         env:
           ALIEXPRESS_APP_KEY: ${{ secrets.ALIEXPRESS_APP_KEY }}
           ALIEXPRESS_APP_SECRET: ${{ secrets.ALIEXPRESS_APP_SECRET }}
+          ALIEXPRESS_APP_SIGNATURE: ${{ secrets.ALIEXPRESS_APP_SIGNATURE }}
           ALIEXPRESS_TRACKING_ID: ${{ secrets.ALIEXPRESS_TRACKING_ID }}
         run: node scripts/update-products.js
 

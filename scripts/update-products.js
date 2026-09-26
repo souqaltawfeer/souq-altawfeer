@@ -2,7 +2,8 @@
 /**
  * Updates products.json from AliExpress Affiliate API.
  * Required GitHub Actions secrets:
- *   ALIEXPRESS_APP_KEY, ALIEXPRESS_APP_SECRET, ALIEXPRESS_TRACKING_ID
+ *   ALIEXPRESS_APP_KEY, ALIEXPRESS_APP_SECRET, ALIEXPRESS_APP_SIGNATURE,
+ *   ALIEXPRESS_TRACKING_ID
  * Optional variables: ALIEXPRESS_API_URL, ALIEXPRESS_API_METHOD
  */
 const fs = require('node:fs');
@@ -15,10 +16,11 @@ const apiUrl = process.env.ALIEXPRESS_API_URL || 'https://api-sg.aliexpress.com/
 const apiMethod = process.env.ALIEXPRESS_API_METHOD || 'aliexpress.affiliate.product.query';
 const appKey = process.env.ALIEXPRESS_APP_KEY;
 const appSecret = process.env.ALIEXPRESS_APP_SECRET;
+const appSignature = process.env.ALIEXPRESS_APP_SIGNATURE;
 const trackingId = process.env.ALIEXPRESS_TRACKING_ID;
 
-if (!appKey || !appSecret || !trackingId) {
-  throw new Error('Missing ALIEXPRESS_APP_KEY, ALIEXPRESS_APP_SECRET, or ALIEXPRESS_TRACKING_ID');
+if (!appKey || !appSecret || !appSignature || !trackingId) {
+  throw new Error('Missing ALIEXPRESS_APP_KEY, ALIEXPRESS_APP_SECRET, ALIEXPRESS_APP_SIGNATURE, or ALIEXPRESS_TRACKING_ID');
 }
 
 const sources = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
@@ -26,14 +28,12 @@ const products = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
 const now = new Date().toISOString();
 
 function timestamp() {
-  const d = new Date();
-  const pad = n => String(n).padStart(2, '0');
-  return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())} ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())}`;
+  return String(Date.now());
 }
 
 function sign(params) {
-  const canonical = Object.keys(params).sort().map(key => `${key}=${params[key]}`).join('&');
-  return crypto.createHash('md5').update(appSecret + canonical + appSecret).digest('hex').toUpperCase();
+  const canonical = Object.keys(params).sort().map(key => key + params[key]).join('');
+  return crypto.createHmac('sha256', appSecret).update(canonical).digest('hex').toUpperCase();
 }
 
 function firstValue(obj, keys) {
@@ -67,9 +67,8 @@ async function queryAliExpress(source) {
     app_key: appKey,
     method: apiMethod,
     timestamp: timestamp(),
-    format: 'json',
-    v: '2.0',
-    sign_method: 'md5',
+    sign_method: 'sha256',
+    app_signature: appSignature,
     simplify: 'true',
     target_currency: source.currency || 'USD',
     target_language: 'EN',

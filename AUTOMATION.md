@@ -12,6 +12,7 @@
 
 - `ALIEXPRESS_APP_KEY`: AppKey من AliExpress App Console.
 - `ALIEXPRESS_APP_SECRET`: App Secret من AliExpress App Console.
+- `ALIEXPRESS_APP_SIGNATURE`: App Signature/Signature الخاصة بتطبيق Affiliate API، إذا طلبتها لوحة AliExpress.
 - `ALIEXPRESS_TRACKING_ID`: Tracking ID من AliExpress Portals.
 
 لا تضع هذه القيم في HTML أو JavaScript أو أي ملف يتم رفعه للمستودع. إذا تم كشف App Secret سابقاً، اعمل له Reset قبل إضافته إلى GitHub Secrets.
