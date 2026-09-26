@@ -3,6 +3,7 @@
   "minDiscountPercent": 20,
   "minRating": 4.5,
   "minOrders": 100,
+  "highSalesOrders": 1000,
   "queries": [
     {"id":"electronics","keywords":"wireless earbuds smart watch phone accessories","category":"إلكترونيات","currency":"USD","pageSize":20},
     {"id":"home","keywords":"home gadgets kitchen tools organization","category":"المنزل","currency":"USD","pageSize":20},

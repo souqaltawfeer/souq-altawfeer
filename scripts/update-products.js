@@ -29,12 +29,14 @@ const settings = Array.isArray(configFile) ? {
   minDiscountPercent: 20,
   minRating: 4.5,
   minOrders: 100,
+  highSalesOrders: 1000,
   queries: configFile
 } : {
   maxProducts: 20,
   minDiscountPercent: 20,
   minRating: 4.5,
   minOrders: 100,
+  highSalesOrders: 1000,
   ...configFile
 };
 const products = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
@@ -136,9 +138,11 @@ function normalizeCandidate(product, query) {
   const old = numeric(product, ['target_original_price', 'targetOriginalPrice', 'original_price', 'originalPrice']);
   const rating = numeric(product, ['evaluate_rate', 'evaluateRate', 'rating']);
   const orders = numeric(product, ['volume', 'orders', 'order_count', 'orderCount', 'sale_count']);
+  const shippingValue = firstValue(product, ['is_free_shipping', 'isFreeShipping', 'free_shipping', 'freeShipping', 'shipping_fee', 'shippingFee', 'shipping_cost', 'shippingCost']);
+  const freeShipping = ['true', '1', 'yes', 'free', '0', '0.0'].includes(String(shippingValue).toLowerCase());
   const discount = old > price && price > 0 ? Math.round((1 - price / old) * 100) : 0;
   return {
-    id, product, price, old, rating, orders, discount,
+    id, product, price, old, rating, orders, discount, freeShipping,
     category: query.category,
     currency: query.currency || 'USD'
   };
@@ -176,9 +180,8 @@ function toSiteProduct(candidate, affiliateUrl, query) {
       const candidates = (await searchProducts(query))
         .map(product => normalizeCandidate(product, query))
         .filter(item => item.id && item.price > 0)
-        .filter(item => item.discount >= Number(settings.minDiscountPercent))
         .filter(item => item.rating >= Number(settings.minRating))
-        .filter(item => item.orders >= Number(settings.minOrders))
+        .filter(item => item.discount >= Number(settings.minDiscountPercent) || item.freeShipping || item.orders >= Number(settings.highSalesOrders || 1000))
         .sort((a, b) => b.discount - a.discount);
 
       for (const candidate of candidates) {
