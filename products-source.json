@@ -1,0 +1,37 @@
+[
+  {
+    "id": "aliexpress-nike-air-max",
+    "itemId": "",
+    "keywords": "Nike Air Max shoes",
+    "category": "أزياء",
+    "currency": "USD"
+  },
+  {
+    "id": "aliexpress-leather-handbag",
+    "itemId": "",
+    "keywords": "women leather handbag",
+    "category": "أزياء",
+    "currency": "USD"
+  },
+  {
+    "id": "aliexpress-korean-skincare",
+    "itemId": "",
+    "keywords": "Korean skincare set",
+    "category": "الجمال",
+    "currency": "USD"
+  },
+  {
+    "id": "aliexpress-uv400-sunglasses",
+    "itemId": "",
+    "keywords": "UV400 sunglasses",
+    "category": "أزياء",
+    "currency": "USD"
+  },
+  {
+    "id": "aliexpress-xiaomi-256gb",
+    "itemId": "",
+    "keywords": "Xiaomi smartphone 256GB",
+    "category": "إلكترونيات",
+    "currency": "USD"
+  }
+]
