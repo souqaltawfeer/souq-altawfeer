@@ -42,8 +42,9 @@ const settings = Array.isArray(configFile) ? {
   highSalesOrders: 1000,
   ...configFile
 };
-const products = JSON.parse(fs.readFileSync(productsPath, 'utf8'))
-  .filter(product => (settings.enabledStores || ['علي إكسبريس']).includes(product.store));
+// Preserve every previously published product. Unlinked stores can be hidden in the UI,
+// but their records must remain available for a future store connection.
+const products = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
 const now = new Date().toISOString();
 
 function firstValue(obj, keys) {
@@ -190,6 +191,7 @@ function toSiteProduct(candidate, affiliateUrl, query) {
   const failures = [];
   let updated = 0;
   let added = 0;
+  let activeCount = products.filter(product => (settings.enabledStores || ['علي إكسبريس']).includes(product.store)).length;
   const existingIds = new Set(products.map(product => product.sourceId).filter(Boolean));
   const existingNames = new Set(products.map(product => String(product.name || '').toLowerCase()));
 
@@ -206,7 +208,7 @@ function toSiteProduct(candidate, affiliateUrl, query) {
         .sort((a, b) => (b.discount * 3 + (b.freeShipping ? 20 : 0) + b.orders / 100) - (a.discount * 3 + (a.freeShipping ? 20 : 0) + a.orders / 100));
 
       for (const candidate of candidates) {
-        if (products.length >= Number(settings.maxProducts) && !existingIds.has(`auto:${candidate.id}`)) continue;
+        if (activeCount >= Number(settings.maxProducts) && !existingIds.has(`auto:${candidate.id}`)) continue;
         const sourceId = `auto:${candidate.id}`;
         const existingIndex = products.findIndex(item => item.sourceId === sourceId);
         try {
@@ -221,6 +223,7 @@ function toSiteProduct(candidate, affiliateUrl, query) {
             products.push(next);
             existingIds.add(sourceId);
             existingNames.add(next.name.toLowerCase());
+            activeCount++;
             added++;
           }
         } catch (error) {
