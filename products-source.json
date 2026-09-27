@@ -1,6 +1,7 @@
 {
   "enabledStores": ["علي إكسبريس"],
-  "maxProducts": 100,
+  "maxProducts": 150,
+  "maxPerCategory": 15,
   "minDiscountPercent": 20,
   "minRating": 4.5,
   "minOrders": 100,

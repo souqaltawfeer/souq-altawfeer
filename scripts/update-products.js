@@ -27,6 +27,7 @@ if (missingSecrets.length) throw new Error(`Missing secret(s): ${missingSecrets.
 const configFile = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
 const settings = Array.isArray(configFile) ? {
   maxProducts: 20,
+  maxPerCategory: 15,
   enabledStores: ['علي إكسبريس'],
   minDiscountPercent: 20,
   minRating: 4.5,
@@ -35,6 +36,7 @@ const settings = Array.isArray(configFile) ? {
   queries: configFile
 } : {
   maxProducts: 20,
+  maxPerCategory: 15,
   enabledStores: ['علي إكسبريس'],
   minDiscountPercent: 20,
   minRating: 4.5,
@@ -197,6 +199,7 @@ function toSiteProduct(candidate, affiliateUrl, query) {
 
   for (const query of settings.queries || []) {
     try {
+      let categoryCount = products.filter(product => product.store === 'علي إكسبريس' && product.cat === query.category).length;
       const validProducts = (await searchProducts(query))
         .map(product => normalizeCandidate(product, query))
         .filter(item => item.id && item.price > 0);
@@ -210,6 +213,7 @@ function toSiteProduct(candidate, affiliateUrl, query) {
       for (const candidate of candidates) {
         if (activeCount >= Number(settings.maxProducts) && !existingIds.has(`auto:${candidate.id}`)) continue;
         const sourceId = `auto:${candidate.id}`;
+        if (categoryCount >= Number(settings.maxPerCategory || 15) && !existingIds.has(sourceId)) continue;
         const existingIndex = products.findIndex(item => item.sourceId === sourceId);
         try {
           const affiliateUrl = await createAffiliateLink(candidate.product);
@@ -224,6 +228,7 @@ function toSiteProduct(candidate, affiliateUrl, query) {
             existingIds.add(sourceId);
             existingNames.add(next.name.toLowerCase());
             activeCount++;
+            categoryCount++;
             added++;
           }
         } catch (error) {
