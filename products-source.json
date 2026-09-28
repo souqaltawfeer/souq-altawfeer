@@ -1,21 +1,93 @@
 {
-  "enabledStores": ["علي إكسبريس"],
-  "maxProducts": 150,
-  "maxPerCategory": 15,
+  "enabledStores": [
+    "علي إكسبريس"
+  ],
+  "maxProducts": 500,
+  "maxPerCategory": 60,
   "minDiscountPercent": 20,
   "minRating": 4.5,
   "minOrders": 100,
   "highSalesOrders": 1000,
   "queries": [
-    {"id":"electronics","keywords":"wireless earbuds smart watch phone accessories chargers","category":"إلكترونيات","currency":"USD","pageSize":50},
-    {"id":"computers","keywords":"laptop accessories keyboard mouse USB hub computer","category":"إلكترونيات","currency":"USD","pageSize":50},
-    {"id":"home","keywords":"home gadgets kitchen tools organization storage","category":"المنزل","currency":"USD","pageSize":50},
-    {"id":"fashion","keywords":"women fashion men clothing sunglasses bags shoes","category":"أزياء","currency":"USD","pageSize":50},
-    {"id":"beauty","keywords":"korean skincare beauty tools makeup accessories","category":"الجمال","currency":"USD","pageSize":50},
-    {"id":"sports","keywords":"fitness sports outdoor camping gym equipment","category":"رياضة","currency":"USD","pageSize":50},
-    {"id":"kids","keywords":"kids toys educational games baby products","category":"الأطفال","currency":"USD","pageSize":50},
-    {"id":"automotive","keywords":"car accessories car electronics tools motorcycle","category":"السيارات","currency":"USD","pageSize":50},
-    {"id":"office","keywords":"office supplies stationery desk accessories school","category":"المكتب","currency":"USD","pageSize":50},
-    {"id":"tools","keywords":"hand tools power tools hardware repair","category":"الأدوات","currency":"USD","pageSize":50}
+    {
+      "id": "electronics",
+      "keywords": "wireless earbuds smart watch phone accessories chargers",
+      "category": "إلكترونيات",
+      "currency": "USD",
+      "pageSize": 50,
+      "pageCount": 3
+    },
+    {
+      "id": "computers",
+      "keywords": "laptop accessories keyboard mouse USB hub computer",
+      "category": "إلكترونيات",
+      "currency": "USD",
+      "pageSize": 50,
+      "pageCount": 3
+    },
+    {
+      "id": "home",
+      "keywords": "home gadgets kitchen tools organization storage",
+      "category": "المنزل",
+      "currency": "USD",
+      "pageSize": 50,
+      "pageCount": 3
+    },
+    {
+      "id": "fashion",
+      "keywords": "women fashion men clothing sunglasses bags shoes",
+      "category": "أزياء",
+      "currency": "USD",
+      "pageSize": 50,
+      "pageCount": 3
+    },
+    {
+      "id": "beauty",
+      "keywords": "korean skincare beauty tools makeup accessories",
+      "category": "الجمال",
+      "currency": "USD",
+      "pageSize": 50,
+      "pageCount": 3
+    },
+    {
+      "id": "sports",
+      "keywords": "fitness sports outdoor camping gym equipment",
+      "category": "رياضة",
+      "currency": "USD",
+      "pageSize": 50,
+      "pageCount": 3
+    },
+    {
+      "id": "kids",
+      "keywords": "kids toys educational games baby products",
+      "category": "الأطفال",
+      "currency": "USD",
+      "pageSize": 50,
+      "pageCount": 3
+    },
+    {
+      "id": "automotive",
+      "keywords": "car accessories car electronics tools motorcycle",
+      "category": "السيارات",
+      "currency": "USD",
+      "pageSize": 50,
+      "pageCount": 3
+    },
+    {
+      "id": "office",
+      "keywords": "office supplies stationery desk accessories school",
+      "category": "المكتب",
+      "currency": "USD",
+      "pageSize": 50,
+      "pageCount": 3
+    },
+    {
+      "id": "tools",
+      "keywords": "hand tools power tools hardware repair",
+      "category": "الأدوات",
+      "currency": "USD",
+      "pageSize": 50,
+      "pageCount": 3
+    }
   ]
 }

@@ -26,8 +26,8 @@ if (missingSecrets.length) throw new Error(`Missing secret(s): ${missingSecrets.
 
 const configFile = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
 const settings = Array.isArray(configFile) ? {
-  maxProducts: 20,
-  maxPerCategory: 15,
+  maxProducts: 500,
+  maxPerCategory: 60,
   enabledStores: ['علي إكسبريس'],
   minDiscountPercent: 20,
   minRating: 4.5,
@@ -35,8 +35,8 @@ const settings = Array.isArray(configFile) ? {
   highSalesOrders: 1000,
   queries: configFile
 } : {
-  maxProducts: 20,
-  maxPerCategory: 15,
+  maxProducts: 500,
+  maxPerCategory: 60,
   enabledStores: ['علي إكسبريس'],
   minDiscountPercent: 20,
   minRating: 4.5,
@@ -106,17 +106,27 @@ async function callApi(method, businessParams = {}) {
 }
 
 async function searchProducts(query) {
-  const payload = await callApi('aliexpress.affiliate.product.query', {
-    keywords: query.keywords,
-    tracking_id: trackingId,
-    target_currency: query.currency || 'USD',
-    target_language: 'EN',
-    ship_to_country: query.country || 'SA',
-    page_no: '1',
-    page_size: String(query.pageSize || 20),
-    sort: 'SALE_PRICE_ASC'
-  });
-  return collectProductObjects(payload);
+  const pages = [];
+  const pageCount = Math.max(1, Math.min(Number(query.pageCount || 3), 5));
+  for (let page = 1; page <= pageCount; page++) {
+    const payload = await callApi('aliexpress.affiliate.product.query', {
+      keywords: query.keywords,
+      tracking_id: trackingId,
+      target_currency: query.currency || 'USD',
+      target_language: 'EN',
+      ship_to_country: query.country || 'SA',
+      page_no: String(page),
+      page_size: String(Math.min(Number(query.pageSize || 50), 50)),
+      sort: query.sort || 'SALE_PRICE_ASC'
+    });
+    pages.push(...collectProductObjects(payload));
+  }
+  const unique = new Map();
+  for (const product of pages) {
+    const id = String(firstValue(product, ['product_id', 'productId', 'item_id', 'itemId']) || '');
+    if (id && !unique.has(id)) unique.set(id, product);
+  }
+  return [...unique.values()];
 }
 
 async function createAffiliateLink(product) {
@@ -180,6 +190,8 @@ function toSiteProduct(candidate, affiliateUrl, query) {
     price: candidate.price,
     old: candidate.old,
     cur: '$',
+    priceSource: 'AliExpress API',
+    priceCountry: query.country || 'SA',
     cat: query.category,
     img: firstValue(product, ['product_main_image_url', 'productMainImageUrl', 'image_url', 'imageUrl', 'img_url']),
     rating: candidate.rating,
